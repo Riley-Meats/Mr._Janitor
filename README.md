@@ -1,6 +1,8 @@
 # Mr._Janitor
 This will be where we put updates of thin gs we just added to the repository with the date
+
 EX: 11/2/2021_Just added a README to our Mr._Janitor REPO
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 11/1/2021_I've made the front facing version of our janitor and have put him in assets, unusable for now

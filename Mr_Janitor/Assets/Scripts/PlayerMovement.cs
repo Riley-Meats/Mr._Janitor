@@ -12,10 +12,13 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 lookDirection = new Vector2(0, 0);
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+	animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
         }
+
+	animator.SetFloat("Move X", lookDirection.x);
+	animator.SetFloat("Move Y", lookDirection.y);
     }
 
     void FixedUpdate()

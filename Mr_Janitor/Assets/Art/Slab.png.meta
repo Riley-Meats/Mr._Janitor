@@ -146,11 +146,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 314.6667
-        width: 157.33333
-        height: 157.33333
+        y: 315
+        width: 157
+        height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -166,12 +166,12 @@ TextureImporter:
       name: Slab_1
       rect:
         serializedVersion: 2
-        x: 157
-        y: 314.6667
-        width: 157.33333
-        height: 157.33333
+        x: 160
+        y: 317
+        width: 154
+        height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,7 +192,7 @@ TextureImporter:
         width: 157.33333
         height: 157.33333
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,11 +209,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 157.66667
-        width: 157.33333
-        height: 157.33333
+        y: 158
+        width: 157
+        height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,13 +229,13 @@ TextureImporter:
       name: Slab_4
       rect:
         serializedVersion: 2
-        x: 157
-        y: 157.66667
-        width: 157.33333
-        height: 157.33333
+        x: 158
+        y: 157
+        width: 1
+        height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -251,11 +251,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 314
-        y: 157.66667
-        width: 157.33333
-        height: 157.33333
+        y: 158
+        width: 157
+        height: 156
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,11 +272,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0.66667175
-        width: 157.33333
-        height: 157.33333
+        y: 1
+        width: 157
+        height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -292,13 +292,13 @@ TextureImporter:
       name: Slab_7
       rect:
         serializedVersion: 2
-        x: 157
-        y: 0.66667175
-        width: 157.33333
-        height: 157.33333
+        x: 161
+        y: 0
+        width: 155
+        height: 157
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 155, w: 156}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -318,7 +318,7 @@ TextureImporter:
         width: 157.33333
         height: 157.33333
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

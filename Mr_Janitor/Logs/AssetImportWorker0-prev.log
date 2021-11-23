@@ -22,26 +22,26 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59324
+59380
 Successfully changed project path to: /Users/meatsr/Documents/GitHub/Mr._Janitor/Mr_Janitor
 /Users/meatsr/Documents/GitHub/Mr._Janitor/Mr_Janitor
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 59.85 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 61.10 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.19f1 (68f137dc9bbe)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.19f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/meatsr/Documents/GitHub/Mr._Janitor/Mr_Janitor/Assets
 GfxDevice: creating device client; threaded=0
-2021-11-22 08:16:48.524 Unity[12078:1500032] iMac preferred device: Intel HD Graphics 4000 (low power)
-2021-11-22 08:16:48.524 Unity[12078:1500032] Metal devices available: 1
-2021-11-22 08:16:48.524 Unity[12078:1500032] 0: Intel HD Graphics 4000 (low power)
-2021-11-22 08:16:48.526 Unity[12078:1500032] Using device Intel HD Graphics 4000 (low power)
+2021-11-22 08:22:06.381 Unity[12966:1505265] iMac preferred device: Intel HD Graphics 4000 (low power)
+2021-11-22 08:22:06.381 Unity[12966:1505265] Metal devices available: 1
+2021-11-22 08:22:06.381 Unity[12966:1505265] 0: Intel HD Graphics 4000 (low power)
+2021-11-22 08:22:06.382 Unity[12966:1505265] Using device Intel HD Graphics 4000 (low power)
 Initializing Metal device caps: Intel HD Graphics 4000
 Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.19f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.19f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = '/Applications/Unity/Hub/Editor/2020.3.19f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56078
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56966
 Begin MonoManager ReloadAssembly
 Error scanning for extension ivy.xml files: System.UnauthorizedAccessException: Access to the path '/Applications/Unity/Hub/Editor/2020.3.19f1/PlaybackEngines/AndroidPlayer/SDK/build-tools/30.0.2' is denied.
   at System.IO.__Error.WinIOError (System.Int32 errorCode, System.String maybeFullPath) [0x00129] in <695d1cc93cca45069c528c15c9fdd749>:0 
@@ -56,79 +56,79 @@ Error scanning for extension ivy.xml files: System.UnauthorizedAccessException: 
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.19f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.19f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001037 seconds.
+Registered in 0.001418 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 59.19 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 63.53 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.841 seconds
+- Completed reload, in  5.660 seconds
 Domain Reload Profiling:
-	ReloadAssembly (5842ms)
-		BeginReloadAssembly (63ms)
+	ReloadAssembly (5660ms)
+		BeginReloadAssembly (62ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (2ms)
-		EndReloadAssembly (755ms)
-			LoadAssemblies (62ms)
+		EndReloadAssembly (798ms)
+			LoadAssemblies (61ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (294ms)
+			SetupTypeCache (308ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (59ms)
-			SetupLoadedEditorAssemblies (284ms)
+			RebuildScriptCaches (67ms)
+			SetupLoadedEditorAssemblies (298ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (59ms)
-				BeforeProcessingInitializeOnLoad (11ms)
-				ProcessInitializeOnLoadAttributes (159ms)
-				ProcessInitializeOnLoadMethodAttributes (47ms)
+				RefreshPlugins (64ms)
+				BeforeProcessingInitializeOnLoad (12ms)
+				ProcessInitializeOnLoadAttributes (165ms)
+				ProcessInitializeOnLoadMethodAttributes (50ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001926 seconds.
+Registered in 0.001986 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 75.66 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 59.43 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.102 seconds
+- Completed reload, in  1.780 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2103ms)
-		BeginReloadAssembly (260ms)
+	ReloadAssembly (1782ms)
+		BeginReloadAssembly (242ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (49ms)
-		EndReloadAssembly (1733ms)
-			LoadAssemblies (119ms)
+			CreateAndSetChildDomain (46ms)
+		EndReloadAssembly (1437ms)
+			LoadAssemblies (114ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (568ms)
+			SetupTypeCache (517ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (93ms)
-			SetupLoadedEditorAssemblies (732ms)
+			RebuildScriptCaches (87ms)
+			SetupLoadedEditorAssemblies (523ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (76ms)
-				BeforeProcessingInitializeOnLoad (121ms)
-				ProcessInitializeOnLoadAttributes (501ms)
-				ProcessInitializeOnLoadMethodAttributes (24ms)
+				RefreshPlugins (59ms)
+				BeforeProcessingInitializeOnLoad (88ms)
+				ProcessInitializeOnLoadAttributes (346ms)
+				ProcessInitializeOnLoadMethodAttributes (20ms)
 				AfterProcessingInitializeOnLoad (2ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
 Platform modules already initialized, skipping
-Validating Project structure ... 0.000998 seconds.
+Validating Project structure ... 0.001122 seconds.
 Shader import version has changed; will reimport all shaders...
-Upgrading shader files ...0.001418 seconds.
+Upgrading shader files ...0.001216 seconds.
 Application.AssetDatabase Initial Script Refresh Start
 RefreshInfo: InitialScriptRefreshV2(NoUpdateAssetOptions) scanfilter:  ... 1 filters
 RefreshProfiler: Total: 0.000ms
@@ -138,7 +138,7 @@ Application.AssetDatabase.Refresh End
 RefreshInfo: StopAssetImportingV2(ForceSynchronousImport) scanfilter: 
 RefreshProfiler: Total: 0.000ms
 Launching external process: /Applications/Unity/Hub/Editor/2020.3.19f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
 Initializing Unity extensions:
 ========================================================================
 Worker process is ready to serve import requests
@@ -149,7 +149,7 @@ System memory in use before: 195.0 MB.
 System memory in use after: 194.2 MB.
 
 Unloading 100 unused Assets to reduce memory usage. Loaded Objects now: 2572.
-Total: 5.058813 ms (FindLiveObjects: 0.413434 ms CreateObjectMapping: 0.222993 ms MarkObjects: 3.785822 ms  DeleteObjects: 0.635070 ms)
+Total: 5.041364 ms (FindLiveObjects: 0.342906 ms CreateObjectMapping: 0.188415 ms MarkObjects: 3.798589 ms  DeleteObjects: 0.710252 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -163,8 +163,88 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/pixil-frame-0(4).png
+  path: Assets/pixil-frame-0(5).png
+  artifactKey: Guid(6aab5e7d3afd84bf1bd42579821bbec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pixil-frame-0(5).png using Guid(6aab5e7d3afd84bf1bd42579821bbec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '896aa89d8e56584f3fb2bb528e3efdac') in 0.397497 seconds 
+  Import took 0.402030 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004362 seconds.
+  path: Assets/pixil-frame-0(6).png
+  artifactKey: Guid(bf5cbf5f5c6ac408abc3f50cdb7aa8f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pixil-frame-0(6).png using Guid(bf5cbf5f5c6ac408abc3f50cdb7aa8f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '321c115067636d83ab472f14349f4e3a') in 0.031467 seconds 
+  Import took 0.037458 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.059353 seconds.
+  path: Assets/back imp.pixil
+  artifactKey: Guid(1638ae071969e4b2b9fb4e9572ca85b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/back imp.pixil using Guid(1638ae071969e4b2b9fb4e9572ca85b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd77ea14c2739f5f489a0ac4a8e624815') in 0.296343 seconds 
+  Import took 0.668198 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.808796 seconds.
+  path: Assets/Imp profile.pixil
+  artifactKey: Guid(2f8fc70e60eb34426930fb2cc4d09a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imp profile.pixil using Guid(2f8fc70e60eb34426930fb2cc4d09a30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24ec7cc4d9570f59a3ea48877344910a') in 0.005165 seconds 
+  Import took 0.011229 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.165229 seconds.
+  path: Assets/pixls
+  artifactKey: Guid(3dcb7160e6d684152a02d44d69d2855c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/pixls using Guid(3dcb7160e6d684152a02d44d69d2855c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e180afe195ac418279f09ddabe1e329c') in 0.002461 seconds 
+  Import took 0.009009 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.378854 seconds.
+  path: Assets/characterSprites
+  artifactKey: Guid(52c7bd705929648a6998a2c7ee27adef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/characterSprites using Guid(52c7bd705929648a6998a2c7ee27adef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ede0faba9be09047d2544ce2a6ad80fe') in 0.002767 seconds 
+  Import took 0.009692 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.395477 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(964992ab9ce01498199bea5c99eb66be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(964992ab9ce01498199bea5c99eb66be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc7c5f80f2500175d4507588a0e826e5') in 0.002740 seconds 
+  Import took 0.009669 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.023064 seconds.
+  path: Assets/Materials/pixil-frame-0(3).mat
+  artifactKey: Guid(166a8e775c780474d96234b99a084a61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/pixil-frame-0(3).mat using Guid(166a8e775c780474d96234b99a084a61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1cf8e73f0a6db36279fae01974b746b') in 0.344887 seconds 
+  Import took 0.351217 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 223.884116 seconds.
+  path: Assets/characterSprites/pixil-frame-0(4).png
   artifactKey: Guid(1b4ca7b39de4b46ecbf69bf0159d8ccc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/pixil-frame-0(4).png using Guid(1b4ca7b39de4b46ecbf69bf0159d8ccc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f1c289c3099a23dfa370f2a6461e5cd') in 0.482173 seconds 
-  Import took 0.500782 seconds .
+Start importing Assets/characterSprites/pixil-frame-0(4).png using Guid(1b4ca7b39de4b46ecbf69bf0159d8ccc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b36a66f4e704981e09e11748f7b76912') in 0.019398 seconds 
+  Import took 0.026853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.735004 seconds.
+  path: Assets/characterSprites/pixil-frame-0(5).png
+  artifactKey: Guid(6aab5e7d3afd84bf1bd42579821bbec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/characterSprites/pixil-frame-0(5).png using Guid(6aab5e7d3afd84bf1bd42579821bbec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28b12dc2f0217b8ec388aa850714a5ff') in 0.017906 seconds 
+  Import took 0.025304 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.936529 seconds.
+  path: Assets/characterSprites/pixil-frame-0(6).png
+  artifactKey: Guid(bf5cbf5f5c6ac408abc3f50cdb7aa8f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/characterSprites/pixil-frame-0(6).png using Guid(bf5cbf5f5c6ac408abc3f50cdb7aa8f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6af04731ab9cf10e24c6c6f18e5eb5d') in 0.018146 seconds 
+  Import took 0.025234 seconds .
 

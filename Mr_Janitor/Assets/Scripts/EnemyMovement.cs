@@ -18,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start () 
  {
+     rigidbody2d = GetComponent<Rigidbody2D>();
      target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
      animator = GetComponent<Animator>();
     }

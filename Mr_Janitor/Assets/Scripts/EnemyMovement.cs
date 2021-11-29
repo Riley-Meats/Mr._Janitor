@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public int health = 1;
+
     public float speed;
     private Transform target;
 
     float horizontal;
     float vertical;
+
+    public bool inRange = false;
 
     Vector2 lookDirection = new Vector2(0, 0);
 
@@ -63,8 +67,23 @@ public class EnemyMovement : MonoBehaviour
      Destroy(gameObject);
  }
 
-    void OnMouseDown()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject);
+        inRange = true;
     }
+
+    public void OnMouseDown()
+    {
+        if (inRange == true)
+        {
+            health = health - 1;
+
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    
 }

@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     bool isInvincible;
     float invincibleTimer;
 
-    Vector2 lookDirection = new Vector2(0, 0);
+    Vector2 lookDirection = new Vector2(1, 0);
 
     Animator animator;
 
@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
 	animator.SetFloat("Move X", lookDirection.x);
 	animator.SetFloat("Move Y", lookDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
 
 	if (isInvincible)
 	{

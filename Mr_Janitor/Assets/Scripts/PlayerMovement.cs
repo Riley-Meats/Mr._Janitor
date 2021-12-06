@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     bool isInvincible;
     float invincibleTimer;
 
-    Vector2 lookDirection = new Vector2(1, 0);
+    Vector2 lookDirection = new Vector2(0, 0);
 
     Animator animator;
 
@@ -43,20 +43,25 @@ public class PlayerMovement : MonoBehaviour
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
         {
             lookDirection.Set(move.x, move.y);
-            lookDirection.Normalize();
+            //lookDirection.Normalize();
         }
 
-	animator.SetFloat("Move X", lookDirection.x);
-	animator.SetFloat("Move Y", lookDirection.y);
+        animator.SetFloat("Move X", lookDirection.x);
+        animator.SetFloat("Move Y", lookDirection.y);
         animator.SetFloat("Speed", move.magnitude);
 
-	if (isInvincible)
-	{
-	    invincibleTimer -= Time.deltaTime;
-	    if (invincibleTimer < 0)
-		isInvincible = false;
-	}
-    }
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+                isInvincible = false;
+        }
+
+        if (move.magnitude == 0)
+        {
+            animator.Play("Idle");
+        }
+}
 
     void FixedUpdate()
     {

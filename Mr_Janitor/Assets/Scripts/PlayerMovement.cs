@@ -19,6 +19,13 @@ public class PlayerMovement : MonoBehaviour
     bool isInvincible;
     float invincibleTimer;
 
+    public float delay = 2.0f;
+    public float delayTime;
+
+    bool TP = false;
+
+    Vector2 movePosition = new Vector2(0, 0);
+
     Vector2 lookDirection = new Vector2(0, 0);
 
     Animator animator;
@@ -30,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
 	animator = GetComponent<Animator>();
 
         currentHealth = maxHealth;
+
+        delayTime = delay;
     }
 
     // Update is called once per frame
@@ -69,6 +78,19 @@ public class PlayerMovement : MonoBehaviour
         position.x = position.x + speed * horizontal * Time.deltaTime;
         position.y = position.y + speed * vertical * Time.deltaTime;
 
+        if (TP == true)
+        {
+            delayTime -= Time.deltaTime;
+
+            if (delayTime < 0.5)
+            {
+                position = movePosition;
+                Debug.Log(position);
+                delayTime = delay;
+                TP = false;
+            }
+        }
+
         rigidbody2d.MovePosition(position);
     }
 
@@ -85,5 +107,12 @@ public class PlayerMovement : MonoBehaviour
 
 	currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 	Debug.Log(currentHealth + "/" + maxHealth);
+    }
+
+    public void DoorHit(Vector2 doorPos)
+    {
+        TP = true;
+        movePosition = doorPos;
+        Debug.Log(movePosition);
     }
 }

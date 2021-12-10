@@ -36,9 +36,9 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
 	animator = GetComponent<Animator>();
 
-        currentHealth = maxHealth;
-
         delayTime = delay;
+
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -70,13 +70,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.Play("Idle");
         }
-}
-
-    void FixedUpdate()
-    {
-        Vector2 position = rigidbody2d.position;
-        position.x = position.x + speed * horizontal * Time.deltaTime;
-        position.y = position.y + speed * vertical * Time.deltaTime;
 
         if (TP == true)
         {
@@ -90,6 +83,13 @@ public class PlayerMovement : MonoBehaviour
                 TP = false;
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 position = rigidbody2d.position;
+        position.x = position.x + speed * horizontal * Time.deltaTime;
+        position.y = position.y + speed * vertical * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
     }

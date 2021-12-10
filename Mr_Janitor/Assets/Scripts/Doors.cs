@@ -8,6 +8,8 @@ public class Doors : MonoBehaviour
     public float tpX = 20f;
     public float tpY = -5f;
 
+    float delay = 2.0f;
+
     Animator animator;
 
     void Start()

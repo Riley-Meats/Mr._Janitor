@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 3.0f;
@@ -21,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float delay = 2.0f;
     public float delayTime;
-
-    bool TP = false;
 
     Vector2 movePosition = new Vector2(0, 0);
 
@@ -70,19 +69,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.Play("Idle");
         }
-
-        if (TP == true)
-        {
-            delayTime -= Time.deltaTime;
-
-            if (delayTime < 0.5)
-            {
-                position = movePosition;
-                Debug.Log(position);
-                delayTime = delay;
-                TP = false;
-            }
-        }
     }
 
     void FixedUpdate()
@@ -107,12 +93,5 @@ public class PlayerMovement : MonoBehaviour
 
 	currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 	Debug.Log(currentHealth + "/" + maxHealth);
-    }
-
-    public void DoorHit(Vector2 doorPos)
-    {
-        TP = true;
-        movePosition = doorPos;
-        Debug.Log(movePosition);
     }
 }

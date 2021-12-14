@@ -6950,6 +6950,8 @@ MonoBehaviour:
   maxHealth: 10
   timeInvincible: 2
   currentHealth: 0
+  delay: 2
+  delayTime: 0
 --- !u!95 &1976415683
 Animator:
   serializedVersion: 3

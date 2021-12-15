@@ -14,12 +14,12 @@ public class Doors : MonoBehaviour
 
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-
+        
     }
 
     public void DoorHit()
@@ -27,8 +27,9 @@ public class Doors : MonoBehaviour
         collision.gameObject.GetComponent<Transform>().position = new Vector2(tpX, tpY);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    public void OnCollisionEnter2D(Collision2D other)
     {
+        GetComponent<TPBlackPlay>().Play(animator.SetTrigger("TPScreen"));
         collision = other;
         Invoke("DoorHit", 2);
     }

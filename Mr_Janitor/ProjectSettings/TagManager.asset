@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
+  - TPScreen
   layers:
   - Default
   - TransparentFX

@@ -29,7 +29,7 @@ public class Doors : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        GetComponent<TPBlackPlay>().Play(animator.SetTrigger("TPScreen"));
+        //GetComponent<TPBlackPlay>().Play(animator.SetTrigger("TPScreen"));
         collision = other;
         Invoke("DoorHit", 2);
     }

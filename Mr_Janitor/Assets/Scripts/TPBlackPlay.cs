@@ -5,7 +5,7 @@ using UnityEngine;
 public class TPBlackPlay : MonoBehaviour
 {
 
-    Animator animator;
+    /*Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +21,5 @@ public class TPBlackPlay : MonoBehaviour
     public void Play()
     {
         animator.SetTrigger("TPScreen");
-    }
+    }*/
 }

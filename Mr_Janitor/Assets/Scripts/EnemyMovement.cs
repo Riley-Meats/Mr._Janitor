@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public int health = 1;
+    public int health;
 
     public float speed;
     private Transform target;
@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     float vertical;
 
     public bool inRange = false;
+
+    bool mouseButton;
 
     Vector2 lookDirection = new Vector2(0, 0);
 
@@ -44,6 +46,16 @@ public class EnemyMovement : MonoBehaviour
 
         animator.SetFloat("Move X", lookDirection.x);
         animator.SetFloat("Move Y", lookDirection.y);
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            mouseButton = true;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseButton = false;
+        }
     }
 
     void FixedUpdate()
@@ -74,16 +86,47 @@ public class EnemyMovement : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (inRange == true)
+        if (mouseButton == true)
         {
-            health = health - 1;
-
-            if (health <= 0)
+            Debug.Log("Left Click");
+            if (inRange == true)
             {
-                Destroy(gameObject);
+                health = health - 1;
+
+                if (health <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }else if (mouseButton == false)
+        {
+            Debug.Log("Right Click");
+            if (inRange == true)
+            {
+                health = health - 2;
+
+                if (health <= 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }
 
-    
+    /*public void OnMouseDown(1)
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Right Click");
+            if (inRange == true)
+            {
+                health = health - 2;
+
+                if (health <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }*/
 }

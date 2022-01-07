@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool inRange = false;
 
+    public float timer = 2.0f;
+
     bool mouseButton;
 
     Vector2 lookDirection = new Vector2(0, 0);
@@ -47,7 +49,43 @@ public class EnemyMovement : MonoBehaviour
         animator.SetFloat("Move X", lookDirection.x);
         animator.SetFloat("Move Y", lookDirection.y);
 
-        if (Input.GetMouseButtonDown(1))
+        timer -= Time.deltaTime;
+
+        if (inRange == true)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Pressed primary button.");
+                health = health - 1;
+
+                if (health <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (timer <= 0f)
+                {
+                    Debug.Log("Pressed secondary button.");
+                    timer = 1.0f;
+                    health = health - 2;
+
+                    if (health <= 0)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
+
+            if (Input.GetMouseButtonDown(2))
+            {
+                Debug.Log("Pressed middle click.");
+            }
+        }
+
+        /*if (Input.GetMouseButtonDown(1))
         {
             mouseButton = true;
         }
@@ -55,7 +93,7 @@ public class EnemyMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mouseButton = false;
-        }
+        }*/
     }
 
     void FixedUpdate()
@@ -86,31 +124,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (mouseButton == true)
-        {
-            Debug.Log("Left Click");
-            if (inRange == true)
-            {
-                health = health - 1;
-
-                if (health <= 0)
-                {
-                    Destroy(gameObject);
-                }
-            }
-        }else if (mouseButton == false)
-        {
-            Debug.Log("Right Click");
-            if (inRange == true)
-            {
-                health = health - 2;
-
-                if (health <= 0)
-                {
-                    Destroy(gameObject);
-                }
-            }
-        }
+        
     }
 
     /*public void OnMouseDown(1)

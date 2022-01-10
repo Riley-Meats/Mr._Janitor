@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8679831651105882849}
   - component: {fileID: 8679831651105882848}
-  - component: {fileID: 8679831651105882851}
+  - component: {fileID: 4244417097741782665}
   - component: {fileID: 8679831651105882879}
   - component: {fileID: 8679831651105882878}
   - component: {fileID: -4260766861050330990}
   m_Layer: 9
   m_Name: FrenchGoatFront
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8679831651105882851
+--- !u!114 &4244417097741782665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 139d226d8de7d445c946b303048c60cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  health: 0
+  speed: 0
+  damage: -1
+  inRange: 0
+  timer: 2
+  seen: 0
 --- !u!61 &8679831651105882879
 BoxCollider2D:
   m_ObjectHideFlags: 0

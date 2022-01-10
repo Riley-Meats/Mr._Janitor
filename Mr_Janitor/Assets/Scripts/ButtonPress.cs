@@ -20,6 +20,8 @@ public class ButtonPress : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("Key pressed");
+                inRange = false;
+                Destroy(gameObject);
             }
         }
     }

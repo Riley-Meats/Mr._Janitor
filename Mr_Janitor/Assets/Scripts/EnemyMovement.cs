@@ -12,11 +12,15 @@ public class EnemyMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
+    public int damage = -1;
+
     public bool inRange = false;
 
     public float timer = 2.0f;
 
     bool mouseButton;
+
+    public bool seen;
 
     Vector2 lookDirection = new Vector2(0, 0);
 
@@ -26,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start () 
  {
+        seen = false;
      rigidbody2d = GetComponent<Rigidbody2D>();
      target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
      animator = GetComponent<Animator>();
@@ -33,23 +38,26 @@ public class EnemyMovement : MonoBehaviour
  
  void Update () 
  {
-     transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-
-        Vector2 move = new Vector2(horizontal, vertical);
-
-        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        if (seen == true)
         {
-            lookDirection.Set(move.x, move.y);
-            lookDirection.Normalize();
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+
+            Vector2 move = new Vector2(horizontal, vertical);
+
+            if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+            {
+                lookDirection.Set(move.x, move.y);
+                lookDirection.Normalize();
+            }
+
+            animator.SetFloat("Move X", lookDirection.x);
+            animator.SetFloat("Move Y", lookDirection.y);
+
+            timer -= Time.deltaTime;
         }
-
-        animator.SetFloat("Move X", lookDirection.x);
-        animator.SetFloat("Move Y", lookDirection.y);
-
-        timer -= Time.deltaTime;
 
         if (inRange == true)
         {
@@ -111,7 +119,7 @@ public class EnemyMovement : MonoBehaviour
 
      if (player != null)
      {
-	 player.ChangeHealth(-1);
+	 player.ChangeHealth(damage);
      }
 
      Destroy(gameObject);

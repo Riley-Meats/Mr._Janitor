@@ -94,4 +94,13 @@ public class PlayerMovement : MonoBehaviour
 	currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 	Debug.Log(currentHealth + "/" + maxHealth);
     }
+
+    public void OnTriggerEnter2D (Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<EnemyMovement>().seen = true;
+            Debug.Log("Seen is " + other.GetComponent<EnemyMovement>().seen);
+        }
+    }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - TPScreen
+  - Enemy
   layers:
   - Default
   - TransparentFX

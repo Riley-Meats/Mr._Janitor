@@ -100,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.GetComponent<EnemyMovement>().seen = true;
-            Debug.Log("Seen is " + other.GetComponent<EnemyMovement>().seen);
         }
     }
 
@@ -109,7 +108,6 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.GetComponent<EnemyMovement>().seen = false;
-            Debug.Log("Seen is " + other.GetComponent<EnemyMovement>().seen);
         }
     }
 }

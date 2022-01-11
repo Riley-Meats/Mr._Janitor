@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
-    public int damage = -1;
+    public int damage = 1;
 
     public bool inRange = false;
 
@@ -122,7 +122,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (player != null)
             {
-                player.ChangeHealth(damage);
+                player.ChangeHealth(-damage);
             }
 
             Destroy(gameObject);
@@ -132,15 +132,5 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         inRange = true;
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        inRange = false;
-    }
-
-    public void OnMouseDown()
-    {
-        
     }
 }

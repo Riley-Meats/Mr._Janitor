@@ -16,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool inRange = false;
 
+    public bool tutorial = false;
+
     public float timer = 2.0f;
 
     bool mouseButton;
@@ -116,13 +118,15 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) 
  {
      PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
+        if (!tutorial)
+        {
+            if (player != null)
+            {
+                player.ChangeHealth(damage);
+            }
 
-     if (player != null)
-     {
-	 player.ChangeHealth(damage);
-     }
-
-     Destroy(gameObject);
+            Destroy(gameObject);
+        }
  }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -130,25 +134,13 @@ public class EnemyMovement : MonoBehaviour
         inRange = true;
     }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        inRange = false;
+    }
+
     public void OnMouseDown()
     {
         
     }
-
-    /*public void OnMouseDown(1)
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("Right Click");
-            if (inRange == true)
-            {
-                health = health - 2;
-
-                if (health <= 0)
-                {
-                    Destroy(gameObject);
-                }
-            }
-        }
-    }*/
 }

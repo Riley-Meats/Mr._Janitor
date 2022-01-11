@@ -103,4 +103,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Seen is " + other.GetComponent<EnemyMovement>().seen);
         }
     }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<EnemyMovement>().seen = false;
+            Debug.Log("Seen is " + other.GetComponent<EnemyMovement>().seen);
+        }
+    }
 }

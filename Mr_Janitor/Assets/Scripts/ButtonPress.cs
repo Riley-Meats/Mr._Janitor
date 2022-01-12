@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonPress : MonoBehaviour
 {
-    bool inRange = false;
+    public bool buttonRange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,12 +15,12 @@ public class ButtonPress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inRange == true)
+        if (buttonRange == true)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("Key pressed");
-                inRange = false;
+                buttonRange = false;
                 Destroy(gameObject);
             }
         }
@@ -28,7 +28,7 @@ public class ButtonPress : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        inRange = true;
+        buttonRange = true;
     }
 
 }

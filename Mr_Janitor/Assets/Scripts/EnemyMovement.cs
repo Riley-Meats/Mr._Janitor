@@ -33,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
     void Start () 
  {
         seen = false;
+        inRange = false;
      rigidbody2d = GetComponent<Rigidbody2D>();
      target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
      animator = GetComponent<Animator>();
@@ -131,6 +132,9 @@ public class EnemyMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        inRange = true;
+        if (other.gameObject.tag == "Player")
+        {
+            inRange = true;
+        }
     }
 }

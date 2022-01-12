@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DirtySpot : MonoBehaviour
 {
-    bool inRange = false;
+    public bool cleanRange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,12 +15,12 @@ public class DirtySpot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inRange == true)
+        if (cleanRange == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Key pressed");
-                inRange = false;
+                cleanRange = false;
                 Destroy(gameObject);
             }
         }
@@ -28,11 +28,11 @@ public class DirtySpot : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        inRange = true;
+        cleanRange = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        inRange = false;
+        cleanRange = false;
     }
 }

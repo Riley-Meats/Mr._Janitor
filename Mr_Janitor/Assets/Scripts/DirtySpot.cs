@@ -9,7 +9,7 @@ public class DirtySpot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GetComponent<Doors>();
     }
 
     // Update is called once per frame
@@ -22,6 +22,7 @@ public class DirtySpot : MonoBehaviour
                 Debug.Log("Key pressed");
                 cleanRange = false;
                 Destroy(gameObject);
+                //GetComponent<Doors>().bloodCount--;
             }
         }
     }

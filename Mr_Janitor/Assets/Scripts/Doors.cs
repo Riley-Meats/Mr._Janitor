@@ -8,10 +8,10 @@ public class Doors : MonoBehaviour
     public float tpX = 20f;
     public float tpY = -5f;
 
-    public float dA = -2.493f;
-    public float dB = -0.603f;
-    public float dC = 1.136f;
-    public float dD = 0.497f;
+    public float dA = 0.0f;
+    public float dB = 0.0f;
+    public float dC = 0.0f;
+    public float dD = 0.0f;
 
     //public int bloodCount;
 
@@ -59,4 +59,20 @@ public class Doors : MonoBehaviour
             bloodCount++;
         }
     }*/
+    // Function to detect if a ray (representing a beam weapon, say)
+    // makes contact with the collider's bounds.
+
+    /*Collider myCollider;
+
+    void Start()
+    {
+        // Store a reference to the collider once at startup.
+        myCollider = GetComponent<Collider>();
+    }
+
+    bool DetectHit(Ray ray)
+    {
+        return myCollider.bounds.IntersectRay(ray);
+    }
+    */
 }

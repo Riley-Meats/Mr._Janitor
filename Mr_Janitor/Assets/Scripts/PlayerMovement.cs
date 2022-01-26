@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public float delay = 2.0f;
     public float delayTime;
 
+    public int bloodCount;
+
     Vector2 movePosition = new Vector2(0, 0);
 
     Vector2 lookDirection = new Vector2(0, 0);
@@ -100,6 +102,12 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.GetComponent<EnemyMovement>().seen = true;
+        }
+
+        if (other.gameObject.tag == "Stain")
+        {
+            bloodCount++;
+            Destroy(other.gameObject);
         }
     }
 

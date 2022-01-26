@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +6,12 @@ public class DirtySpot : MonoBehaviour
 {
     public bool cleanRange = false;
 
+    public int bloodCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Doors>();
+        //GetComponent<Doors>();
     }
 
     // Update is called once per frame
@@ -19,21 +21,24 @@ public class DirtySpot : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Key pressed");
+                
+                Debug.Log("Cleaned");
                 cleanRange = false;
                 Destroy(gameObject);
-                //GetComponent<Doors>().bloodCount--;
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Entered area");
         cleanRange = true;
+        bloodCount++;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log("Exited area");
         cleanRange = false;
     }
-}
+}*/

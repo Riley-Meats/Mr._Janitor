@@ -25,7 +25,7 @@ public class BloodDoor : MonoBehaviour
 
     public void DoorHit()
     {
-        if (collision.gameObect.GetComponent<PlayerMovement>().bloodCount >= 4)
+        if (collision.gameObject.GetComponent<PlayerMovement>().bloodCount >= 4)
         {
             collision.gameObject.GetComponent<Transform>().position = new Vector2(tpX, tpY);
         }

@@ -409,7 +409,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3481734813493402500, guid: 63e81547fde9e4d4d822e6ab4e37df33, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 63e81547fde9e4d4d822e6ab4e37df33, type: 3}
 --- !u!1001 &391050467
 PrefabInstance:
@@ -627,7 +628,6 @@ GameObject:
   m_Component:
   - component: {fileID: 423292465}
   - component: {fileID: 423292464}
-  - component: {fileID: 423292463}
   - component: {fileID: 423292466}
   m_Layer: 0
   m_Name: Stain1
@@ -636,20 +636,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &423292463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423292462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f95183092f1164400be89bbbd50b564f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cleanRange: 0
-  bloodCount: 0
 --- !u!212 &423292464
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -974,7 +960,6 @@ GameObject:
   m_Component:
   - component: {fileID: 506385287}
   - component: {fileID: 506385286}
-  - component: {fileID: 506385285}
   - component: {fileID: 506385284}
   m_Layer: 0
   m_Name: Stain
@@ -1009,20 +994,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &506385285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506385283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f95183092f1164400be89bbbd50b564f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cleanRange: 0
-  bloodCount: 0
 --- !u!212 &506385286
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11672,7 +11643,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3481734813493402500, guid: 63e81547fde9e4d4d822e6ab4e37df33, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 63e81547fde9e4d4d822e6ab4e37df33, type: 3}
 --- !u!1 &1281189126
 GameObject:
@@ -12087,7 +12059,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3481734813493402500, guid: 63e81547fde9e4d4d822e6ab4e37df33, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 63e81547fde9e4d4d822e6ab4e37df33, type: 3}
 --- !u!1001 &1776686069
 PrefabInstance:
@@ -12891,7 +12864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976415677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.0593, y: 3.2964, z: 0}
+  m_LocalPosition: {x: 9.0593, y: 3.38, z: 0}
   m_LocalScale: {x: 0.03375, y: 0.03375, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -12963,6 +12936,7 @@ MonoBehaviour:
   currentHealth: 0
   delay: 2
   delayTime: 0
+  bloodCount: 0
 --- !u!95 &1976415683
 Animator:
   serializedVersion: 3
@@ -13326,7 +13300,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3481734813493402500, guid: 63e81547fde9e4d4d822e6ab4e37df33, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 63e81547fde9e4d4d822e6ab4e37df33, type: 3}
 --- !u!1001 &5099309089530235797
 PrefabInstance:
@@ -13434,7 +13409,6 @@ MonoBehaviour:
   tpX: -3
   tpY: -1.5
   bloodTotal: 4
-  boundsTrigger: {fileID: 5099309089857071963}
 --- !u!212 &5099309089857071962
 SpriteRenderer:
   m_ObjectHideFlags: 0

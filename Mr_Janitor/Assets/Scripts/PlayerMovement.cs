@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
+    bool pressed = false;
+
     public int maxHealth = 10;
     public float timeInvincible = 2.0f;
 
@@ -71,6 +73,16 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.Play("Idle");
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            pressed = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.G))
+        {
+            pressed = false;
+        }
     }
 
     void FixedUpdate()
@@ -104,10 +116,15 @@ public class PlayerMovement : MonoBehaviour
             other.GetComponent<EnemyMovement>().seen = true;
         }
 
+
         if (other.gameObject.tag == "Stain")
         {
-            bloodCount++;
-            Destroy(other.gameObject);
+            Debug.Log("Twat");
+            if (pressed == true)
+            {
+                bloodCount++;
+                Destroy(other.gameObject);
+            }
         }
     }
 

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
-    bool pressed = false;
+    bool stainRange;
 
     public int maxHealth = 10;
     public float timeInvincible = 2.0f;
@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
@@ -74,14 +76,18 @@ public class PlayerMovement : MonoBehaviour
             animator.Play("Idle");
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
+        if (stainRange == true)
         {
-            pressed = true;
-        }
-
-        if (Input.GetKeyUp(KeyCode.G))
-        {
-            pressed = false;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("Stain"));
+                if (hit.collider != null)
+                {
+                    Debug.Log("Pressed E");
+                    Destroy(gameObject);
+                    bloodCount++;
+                }
+            }
         }
     }
 
@@ -119,12 +125,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "Stain")
         {
-            Debug.Log("Twat");
-            if (pressed == true)
-            {
-                bloodCount++;
-                Destroy(other.gameObject);
-            }
+            Debug.Log("You touched a stain");
+            stainRange = true;
         }
     }
 
@@ -133,6 +135,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.GetComponent<EnemyMovement>().seen = false;
+        }
+
+        if (other.gameObject.tag == "Stain")
+        {
+            stainRange = false;
         }
     }
 }

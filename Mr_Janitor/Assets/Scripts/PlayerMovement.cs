@@ -80,12 +80,18 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("Stain"));
+                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("Stain"));
                 if (hit.collider != null)
                 {
-                    Debug.Log("Pressed E");
-                    Destroy(gameObject);
-                    bloodCount++;
+                    Debug.Log("Hit Stain");
+                    Destroy(hit.collider);
+                    DirtySpot stain = hit.collider.GetComponent<DirtySpot>();
+                    if (stain != null)
+                    {
+                        stain.Clean();
+                        Debug.Log("Pressed E");
+                        bloodCount++;
+                    }
                 }
             }
         }

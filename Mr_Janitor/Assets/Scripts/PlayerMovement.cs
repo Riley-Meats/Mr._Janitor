@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int bloodCount;
 
+    GameObject menu;
+
     Vector2 movePosition = new Vector2(0, 0);
 
     Vector2 lookDirection = new Vector2(0, 0);
@@ -40,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
 	animator = GetComponent<Animator>();
 
         delayTime = delay;
+
+        menu = transform.GetChild(1).GetChild(0).gameObject;
 
         currentHealth = maxHealth;
     }
@@ -95,6 +99,12 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+
+        }
+
     }
 
     void FixedUpdate()

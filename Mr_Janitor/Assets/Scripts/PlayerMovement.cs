@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rigidbody2d;
     float horizontal;
     float vertical;
+
+    GameObject menu;
+
+    GameObject storage;
 
     bool stainRange;
 
@@ -27,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
     public int bloodCount;
 
-    GameObject menu;
-
     Vector2 movePosition = new Vector2(0, 0);
 
     Vector2 lookDirection = new Vector2(0, 0);
@@ -43,7 +46,11 @@ public class PlayerMovement : MonoBehaviour
 
         delayTime = delay;
 
-        menu = transform.GetChild(1).GetChild(0).gameObject;
+        menu = transform.GetChild(1).GetChild(1).gameObject;
+        menu.SetActive(false);
+
+        storage = transform.GetChild(1).GetChild(0).gameObject;
+        storage.SetActive(false);
 
         currentHealth = maxHealth;
     }
@@ -100,9 +107,22 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Escape) && !menu.activeSelf)
         {
+            menu.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && menu.activeSelf)
+        {
+            menu.SetActive(false);
+        }
 
+        if (Input.GetKeyDown(KeyCode.Q) && !storage.activeSelf)
+        {
+            storage.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) && storage.activeSelf)
+        {
+            storage.SetActive(false);
         }
 
     }
@@ -157,5 +177,10 @@ public class PlayerMovement : MonoBehaviour
         {
             stainRange = false;
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

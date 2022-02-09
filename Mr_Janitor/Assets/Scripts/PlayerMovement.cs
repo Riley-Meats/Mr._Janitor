@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject menu;
 
-    GameObject storage;
-
     bool stainRange;
 
     public int maxHealth = 10;
@@ -48,9 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
         menu = transform.GetChild(1).GetChild(1).gameObject;
         menu.SetActive(false);
-
-        storage = transform.GetChild(1).GetChild(0).gameObject;
-        storage.SetActive(false);
 
         currentHealth = maxHealth;
     }
@@ -116,15 +111,10 @@ public class PlayerMovement : MonoBehaviour
             menu.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && !storage.activeSelf)
+        if (currentHealth == 0 && !menu.activeSelf)
         {
-            storage.SetActive(true);
+            menu.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && storage.activeSelf)
-        {
-            storage.SetActive(false);
-        }
-
     }
 
     void FixedUpdate()
@@ -148,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-	Debug.Log(currentHealth + "/" + maxHealth);
+        HealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
     public void OnTriggerEnter2D (Collider2D other)

@@ -132,6 +132,17 @@ public class EnemyMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.GetComponent<PlayerMovement>().inMenu == true)
+        {
+            inRange = false;
+            speed = 0.0f;
+        }
+
+        if (other.GetComponent<PlayerMovement>().inMenu == false)
+        {
+            speed = 0.2f;
+        }
+
         if (other.gameObject.tag == "Player")
         {
             inRange = true;

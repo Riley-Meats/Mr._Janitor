@@ -110,17 +110,20 @@ public class PlayerMovement : MonoBehaviour
         {
             menu.SetActive(true);
             inMenu = true;
+            Time.timeScale = 0;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && menu.activeSelf)
         {
             menu.SetActive(false);
             inMenu = false;
+            Time.timeScale = 1;
         }
 
         if (currentHealth == 0 && !menu.activeSelf)
         {
             menu.SetActive(true);
             inMenu = true;
+            Time.timeScale = 0;
         }
 
         if (inMenu == true)
@@ -152,25 +155,22 @@ public class PlayerMovement : MonoBehaviour
 	     invincibleTimer = timeInvincible;
 	}
 
-	currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+	    currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         HealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
     public void OnTriggerEnter2D (Collider2D other)
     {
-        if (inMenu == false)
+        if (other.gameObject.tag == "Enemy")
         {
-            if (other.gameObject.tag == "Enemy")
-            {
-                other.GetComponent<EnemyMovement>().seen = true;
-            }
+            other.GetComponent<EnemyMovement>().seen = true;
+        }
 
 
-            if (other.gameObject.tag == "Stain")
-            {
-                Debug.Log("You touched a stain");
-                stainRange = true;
-            }
+        if (other.gameObject.tag == "Stain")
+        {
+            Debug.Log("You touched a stain");
+            stainRange = true;
         }
     }
 

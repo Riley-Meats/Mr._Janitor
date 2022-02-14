@@ -24,6 +24,10 @@ public class CasterScript : MonoBehaviour
 
     public bool seen;
 
+    Vector2 lastPosition;
+
+    Vector2 position;
+
     Vector2 lookDirection = new Vector2(0, 0);
 
     Animator animator;
@@ -37,6 +41,7 @@ public class CasterScript : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
+        position = transform.position;
     }
 
     void Update()
@@ -45,8 +50,10 @@ public class CasterScript : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-            horizontal = Input.GetAxis("Horizontal");
-            vertical = Input.GetAxis("Vertical");
+            lastPosition = position;
+
+            horizontal = transform.position.x - lastPosition.x;
+            vertical = transform.position.y - lastPosition.y;
 
             Vector2 move = new Vector2(horizontal, vertical);
 
@@ -95,6 +102,16 @@ public class CasterScript : MonoBehaviour
                 Debug.Log("Pressed middle click.");
             }
         }
+
+        /*if (Input.GetMouseButtonDown(1))
+        {
+            mouseButton = true;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseButton = false;
+        }*/
     }
 
     void FixedUpdate()

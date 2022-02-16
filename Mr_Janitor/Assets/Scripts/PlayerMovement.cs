@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
     bool stainRange;
 
+    bool healthUp2Range;
+    bool healthUp4Range;
+    bool healthUp6Range;
+
     public int maxHealth = 10;
     public float timeInvincible = 2.0f;
 
@@ -104,6 +108,48 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
             }
+
+            if (healthUp2Range == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("HealthUp2"));
+                    if (hit.collider != null)
+                    {
+                        Destroy(hit.collider.gameObject);
+                        maxHealth = maxHealth + 2;
+                        currentHealth = currentHealth + 2;
+                    }
+                }
+            }
+
+            if (healthUp4Range == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("HealthUp4"));
+                    if (hit.collider != null)
+                    {
+                        Destroy(hit.collider.gameObject);
+                        maxHealth = maxHealth + 4;
+                        currentHealth = currentHealth + 4;
+                    }
+                }
+            }
+
+            if (healthUp6Range == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("HealthUp6"));
+                    if (hit.collider != null)
+                    {
+                        Destroy(hit.collider.gameObject);
+                        maxHealth = maxHealth + 6;
+                        currentHealth = currentHealth + 6;
+                    }
+                }
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !menu.activeSelf)
@@ -171,6 +217,21 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("You touched a stain");
             stainRange = true;
+        }
+
+        if (other.gameObject.tag == "HealthUp2")
+        {
+            healthUp2Range = true;
+        }
+
+        if (other.gameObject.tag == "HealthUp4")
+        {
+            healthUp4Range = true;
+        }
+
+        if (other.gameObject.tag == "HealthUp6")
+        {
+            healthUp6Range = true;
         }
     }
 

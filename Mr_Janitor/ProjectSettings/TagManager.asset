@@ -11,6 +11,10 @@ TagManager:
   - HealthUp2
   - HealthUp4
   - HealthUp6
+  - WeakEssence
+  - SturdyEssence
+  - StrongEssence
+  - PowerfulEssence
   layers:
   - Default
   - TransparentFX

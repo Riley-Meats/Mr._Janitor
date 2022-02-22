@@ -22,11 +22,13 @@ public class PlayerMovement : MonoBehaviour
     bool healthUp4Range;
     bool healthUp6Range;
 
+    bool increaseHealth;
+
     public int maxHealth = 10;
     public float timeInvincible = 2.0f;
 
-    public int health { get { return currentHealth; }}
-    public int currentHealth;
+    public float health { get { return currentHealth; }}
+    public float currentHealth;
 
     bool isInvincible;
     float invincibleTimer;
@@ -152,6 +154,21 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (increaseHealth == true)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("WeakEssence"));
+                if (hit.collider != null)
+                {
+                    Debug.Log(currentHealth);
+                    Destroy(hit.collider.gameObject);
+                    currentHealth = currentHealth + currentHealth * 0.25f;
+                    Debug.Log(currentHealth);
+                }
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape) && !menu.activeSelf)
         {
             menu.SetActive(true);
@@ -201,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
 	     invincibleTimer = timeInvincible;
 	}
 
-	    currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+	    currentHealth = Mathf.Clamp(currentHealth + amount, 0.0f, maxHealth);
         HealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
@@ -232,6 +249,11 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "HealthUp6")
         {
             healthUp6Range = true;
+        }
+
+        if (other.gameObject.tag == "WeakEssence" || other.gameObject.tag == "SturdyEssence" || other.gameObject.tag == "StrongEssence" || other.gameObject.tag == "PowerfulEssence")
+        {
+            increaseHealth = true;
         }
     }
 

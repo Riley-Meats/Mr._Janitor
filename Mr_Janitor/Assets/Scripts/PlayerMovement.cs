@@ -22,7 +22,10 @@ public class PlayerMovement : MonoBehaviour
     bool healthUp4Range;
     bool healthUp6Range;
 
-    bool increaseHealth;
+    bool WeakEssence;
+    bool SturdyEssence;
+    bool StrongEssence;
+    bool PowerfulEssence;
 
     public int maxHealth = 10;
     public float timeInvincible = 2.0f;
@@ -154,16 +157,65 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (increaseHealth == true)
+        if (WeakEssence == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("Pressed E");
                 RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("WeakEssence"));
                 if (hit.collider != null)
                 {
-                    Debug.Log(currentHealth);
+                    Debug.Log("Hit Potion");
                     Destroy(hit.collider.gameObject);
                     currentHealth = currentHealth + currentHealth * 0.25f;
+                    Debug.Log(currentHealth);
+                }
+            }
+        }
+
+        if (SturdyEssence == true)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Pressed E");
+                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("SturdyEssence"));
+                if (hit.collider != null)
+                {
+                    Debug.Log("Hit Potion");
+                    Destroy(hit.collider.gameObject);
+                    currentHealth = currentHealth + currentHealth * 0.5f;
+                    Debug.Log(currentHealth);
+                }
+            }
+        }
+
+        if (StrongEssence == true)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Pressed E");
+                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("StrongEssence"));
+                if (hit.collider != null)
+                {
+                    Debug.Log("Hit Potion");
+                    Destroy(hit.collider.gameObject);
+                    currentHealth = currentHealth + currentHealth * 0.75f;
+                    Debug.Log(currentHealth);
+                }
+            }
+        }
+
+        if (PowerfulEssence == true)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Pressed E");
+                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("PowerfulEssence"));
+                if (hit.collider != null)
+                {
+                    Debug.Log("Hit Potion");
+                    Destroy(hit.collider.gameObject);
+                    currentHealth = currentHealth + currentHealth * 1.0f;
                     Debug.Log(currentHealth);
                 }
             }
@@ -251,9 +303,28 @@ public class PlayerMovement : MonoBehaviour
             healthUp6Range = true;
         }
 
-        if (other.gameObject.tag == "WeakEssence" || other.gameObject.tag == "SturdyEssence" || other.gameObject.tag == "StrongEssence" || other.gameObject.tag == "PowerfulEssence")
+        if (other.gameObject.tag == "WeakEssence")
         {
-            increaseHealth = true;
+            WeakEssence = true;
+            Debug.Log("Touch potion");
+        }
+
+        if (other.gameObject.tag == "SturdyEssence")
+        {
+            SturdyEssence = true;
+            Debug.Log("Touch potion");
+        }
+
+        if (other.gameObject.tag == "StrongEssence")
+        {
+            StrongEssence = true;
+            Debug.Log("Touch potion");
+        }
+
+        if (other.gameObject.tag == "PowerfulEssence")
+        {
+            PowerfulEssence = true;
+            Debug.Log("Touch potion");
         }
     }
 

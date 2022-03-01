@@ -31,7 +31,10 @@ public class PlayerMovement : MonoBehaviour
     public float timeInvincible = 2.0f;
 
     public float health { get { return currentHealth; }}
-    public float currentHealth;
+    public int currentHealth;
+
+    int maxBlood = 100;
+    int currentBlood = 0;
 
     bool isInvincible;
     float invincibleTimer;
@@ -108,11 +111,15 @@ public class PlayerMovement : MonoBehaviour
                         {
                             stain.Clean();
                             Debug.Log("Pressed E");
+                            currentBlood++;
                             bloodCount++;
+                            
                         }
                     }
                 }
             }
+
+            BloodCounter.instance.SetValue(currentBlood / (float)maxBlood);
 
             if (healthUp2Range == true)
             {
@@ -157,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (WeakEssence == true)
+        if (WeakEssence == true && currentHealth != maxHealth)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -167,13 +174,16 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("Hit Potion");
                     Destroy(hit.collider.gameObject);
-                    currentHealth = currentHealth + currentHealth * 0.25f;
+                    //currentHealth = currentHealth + currentHealth * 0.25f;
+                    int increase = maxHealth / 4;
+                    ChangeHealth(increase);
+                    
                     Debug.Log(currentHealth);
                 }
             }
         }
 
-        if (SturdyEssence == true)
+        if (SturdyEssence == true && currentHealth != maxHealth)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -183,13 +193,14 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("Hit Potion");
                     Destroy(hit.collider.gameObject);
-                    currentHealth = currentHealth + currentHealth * 0.5f;
+                    int stuIncrease = maxHealth / 2;
+                    ChangeHealth(stuIncrease);
                     Debug.Log(currentHealth);
                 }
             }
         }
 
-        if (StrongEssence == true)
+        if (StrongEssence == true && currentHealth != maxHealth)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -199,13 +210,14 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("Hit Potion");
                     Destroy(hit.collider.gameObject);
-                    currentHealth = currentHealth + currentHealth * 0.75f;
+                    int strIncrease = maxHealth * 3 / 4;
+                    ChangeHealth(strIncrease);
                     Debug.Log(currentHealth);
                 }
             }
         }
 
-        if (PowerfulEssence == true)
+        if (PowerfulEssence == true && currentHealth != maxHealth)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -215,7 +227,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("Hit Potion");
                     Destroy(hit.collider.gameObject);
-                    currentHealth = currentHealth + currentHealth * 1.0f;
+                    int powIncrease = maxHealth;
+                    ChangeHealth(powIncrease);
                     Debug.Log(currentHealth);
                 }
             }
@@ -270,7 +283,7 @@ public class PlayerMovement : MonoBehaviour
 	     invincibleTimer = timeInvincible;
 	}
 
-	    currentHealth = Mathf.Clamp(currentHealth + amount, 0.0f, maxHealth);
+	    currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         HealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 

@@ -20,6 +20,9 @@ public class CasterScript : MonoBehaviour
 
     public float timer = 2.0f;
 
+    public float attackTimer;
+    public float timeToAttack;
+
     bool mouseButton;
 
     public bool seen;
@@ -34,6 +37,8 @@ public class CasterScript : MonoBehaviour
 
     Rigidbody2D rigidbody2d;
 
+    public GameObject fireballPrefab;
+
     void Start()
     {
         seen = false;
@@ -42,6 +47,8 @@ public class CasterScript : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
         position = transform.position;
+
+        attackTimer = timeToAttack;
     }
 
     void Update()
@@ -71,6 +78,14 @@ public class CasterScript : MonoBehaviour
 
         if (inRange == true)
         {
+            attackTimer -= Time.deltaTime;
+
+            if (attackTimer < 0)
+            {
+                attackTimer = timeToAttack;
+                Launch();
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Pressed primary button.");
@@ -112,6 +127,14 @@ public class CasterScript : MonoBehaviour
         {
             mouseButton = false;
         }*/
+    }
+
+    void Launch()
+    {
+        GameObject fireball = Instantiate(fireballPrefab, rigidbody2d.position, Quaternion.identity);
+
+        Fireball ball = fireball.GetComponent<Fireball>();
+        ball.Launch(lookDirection, 200);
     }
 
     void FixedUpdate()

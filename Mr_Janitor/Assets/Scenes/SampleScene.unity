@@ -13091,7 +13091,7 @@ GameObject:
   - component: {fileID: 1669721102}
   - component: {fileID: 1669721103}
   - component: {fileID: 1669721104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arson down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13117,7 +13117,7 @@ MonoBehaviour:
   tutorial: 0
   timer: 2
   attackTimer: 0
-  timeToAttack: 0
+  timeToAttack: 2
   seen: 0
   fireballPrefab: {fileID: 1521199853907430478, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
 --- !u!61 &1669721099
@@ -14171,7 +14171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976415677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.148, y: 2.568, z: 0}
+  m_LocalPosition: {x: 9.34, y: 2.622, z: 0}
   m_LocalScale: {x: 0.03375, y: 0.03375, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -15283,25 +15283,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8912076294767183217, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1521199853907430478, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
       propertyPath: m_Name
       value: Fireball
       objectReference: {fileID: 0}
-    - target: {fileID: 3769036965241782493, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
+    - target: {fileID: 4854707824688402687, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5357953326853757343, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
       propertyPath: m_RootOrder
       value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 5357953326853757343, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.03375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5357953326853757343, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.03375
       objectReference: {fileID: 0}
     - target: {fileID: 5357953326853757343, guid: b6717571a585b47879c4278df2cc52e9, type: 3}
       propertyPath: m_LocalPosition.x

@@ -20,7 +20,7 @@ public class CasterScript : MonoBehaviour
 
     public float timer = 2.0f;
 
-    public float attackTimer;
+    public float attackTimer = 2.0f;
     public float timeToAttack;
 
     bool mouseButton;
@@ -82,7 +82,7 @@ public class CasterScript : MonoBehaviour
 
             if (attackTimer < 0)
             {
-                attackTimer = timeToAttack;
+               
                 Launch();
             }
 
@@ -135,6 +135,8 @@ public class CasterScript : MonoBehaviour
 
         Fireball ball = fireball.GetComponent<Fireball>();
         ball.Launch(lookDirection, 200);
+
+        attackTimer = timeToAttack;
     }
 
     void FixedUpdate()

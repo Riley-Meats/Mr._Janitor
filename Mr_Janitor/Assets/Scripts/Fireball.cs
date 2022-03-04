@@ -8,6 +8,9 @@ public class Fireball : MonoBehaviour
 
     int damage = 2;
 
+    float timer = 2.0f;
+    float deleteTimer;
+
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -25,11 +28,24 @@ public class Fireball : MonoBehaviour
             PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
             player.ChangeHealth(-damage);
         }
+        if (other.gameObject.tag != "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        deleteTimer = timer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        deleteTimer -= Time.deltaTime;
+        if (deleteTimer < 0f)
+        {
+            Destroy(gameObject);
+        }
+    } 
 }

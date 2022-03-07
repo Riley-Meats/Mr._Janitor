@@ -82,8 +82,8 @@ public class CasterScript : MonoBehaviour
 
             if (attackTimer < 0)
             {
-               
                 Launch();
+                attackTimer = timeToAttack;
             }
 
             if (Input.GetMouseButtonDown(0))
@@ -134,7 +134,7 @@ public class CasterScript : MonoBehaviour
         GameObject fireball = Instantiate(fireballPrefab, rigidbody2d.position, Quaternion.identity);
 
         Fireball ball = fireball.GetComponent<Fireball>();
-        ball.Launch(lookDirection, 200);
+        ball.Launch(new Vector2(1, 0), 25);
 
         attackTimer = timeToAttack;
     }

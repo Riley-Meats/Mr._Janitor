@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CasterScript : MonoBehaviour
 {
+    public GameObject Player;
+
     public int health;
 
     public float speed;
@@ -53,29 +55,6 @@ public class CasterScript : MonoBehaviour
 
     void Update()
     {
-        if (seen == true)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-            lastPosition = position;
-
-            horizontal = transform.position.x - lastPosition.x;
-            vertical = transform.position.y - lastPosition.y;
-
-            Vector2 move = new Vector2(horizontal, vertical);
-
-            if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
-            {
-                lookDirection.Set(move.x, move.y);
-                lookDirection.Normalize();
-            }
-
-            animator.SetFloat("Move X", lookDirection.x);
-            animator.SetFloat("Move Y", lookDirection.y);
-
-            timer -= Time.deltaTime;
-        }
-
         if (inRange == true)
         {
             attackTimer -= Time.deltaTime;
@@ -116,6 +95,7 @@ public class CasterScript : MonoBehaviour
             {
                 Debug.Log("Pressed middle click.");
             }
+
         }
 
         /*if (Input.GetMouseButtonDown(1))

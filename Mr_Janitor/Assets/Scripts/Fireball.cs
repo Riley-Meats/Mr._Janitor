@@ -11,6 +11,8 @@ public class Fireball : MonoBehaviour
     float timer = 2.0f;
     float deleteTimer;
 
+    int hits;
+
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -21,12 +23,14 @@ public class Fireball : MonoBehaviour
         rigidbody2d.AddForce(force * direction);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
             PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
             player.ChangeHealth(-damage);
+            hits++;
+            Debug.Log(hits);
         }
         if (other.gameObject.tag != "Enemy")
         {

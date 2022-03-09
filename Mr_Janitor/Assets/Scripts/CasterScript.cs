@@ -6,6 +6,8 @@ public class CasterScript : MonoBehaviour
 {
     public GameObject Player;
 
+    public CircleCollider2D range;
+
     public int health;
 
     public float speed;
@@ -22,8 +24,8 @@ public class CasterScript : MonoBehaviour
 
     public float timer = 2.0f;
 
-    public float attackTimer = 2.0f;
-    public float timeToAttack;
+    public float attackTimer;
+    public float timeToAttack = 2.5f;
 
     bool mouseButton;
 
@@ -109,12 +111,23 @@ public class CasterScript : MonoBehaviour
         }*/
     }
 
+    Vector2 GetDirectionOfPlayer()
+    {
+        Vector2 direction = new Vector2(0, 0);
+
+        direction.x = (Player.transform.position.x - gameObject.transform.position.x) / range.radius;
+        direction.y = (Player.transform.position.x - gameObject.transform.position.x) / range.radius;
+
+        return direction;
+        
+    }
+
     void Launch()
     {
         GameObject fireball = Instantiate(fireballPrefab, rigidbody2d.position, Quaternion.identity);
 
         Fireball ball = fireball.GetComponent<Fireball>();
-        ball.Launch(new Vector2(1, 0), 25);
+        ball.Launch(GetDirectionOfPlayer(), 300);
 
         attackTimer = timeToAttack;
     }
@@ -126,20 +139,6 @@ public class CasterScript : MonoBehaviour
         position.y = position.y + speed * vertical * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
-        if (!tutorial)
-        {
-            if (player != null)
-            {
-                player.ChangeHealth(-damage);
-            }
-
-            Destroy(gameObject);
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

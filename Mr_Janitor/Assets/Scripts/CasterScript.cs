@@ -20,8 +20,6 @@ public class CasterScript : MonoBehaviour
 
     public bool inRange = false;
 
-    public bool tutorial = false;
-
     public float timer = 2.0f;
 
     public float attackTimer;
@@ -36,8 +34,6 @@ public class CasterScript : MonoBehaviour
     Vector2 position;
 
     Vector2 lookDirection = new Vector2(0, 0);
-
-    Animator animator;
 
     Rigidbody2D rigidbody2d;
 
@@ -60,6 +56,7 @@ public class CasterScript : MonoBehaviour
         if (inRange == true)
         {
             attackTimer -= Time.deltaTime;
+            RotateTowardsPlayer();
 
             if (attackTimer < 0)
             {
@@ -92,23 +89,14 @@ public class CasterScript : MonoBehaviour
                     }
                 }
             }
-
-            if (Input.GetMouseButtonDown(2))
-            {
-                Debug.Log("Pressed middle click.");
-            }
-
         }
+    }
 
-        /*if (Input.GetMouseButtonDown(1))
-        {
-            mouseButton = true;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            mouseButton = false;
-        }*/
+    void RotateTowardsPlayer()
+    {
+        float angle = Mathf.Atan2(Player.transform.position.x - transform.position.x, Player.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
     }
 
     Vector2 GetDirectionOfPlayer()
@@ -116,7 +104,7 @@ public class CasterScript : MonoBehaviour
         Vector2 direction = new Vector2(0, 0);
 
         direction.x = (Player.transform.position.x - gameObject.transform.position.x) / range.radius;
-        direction.y = (Player.transform.position.x - gameObject.transform.position.x) / range.radius;
+        direction.y = (Player.transform.position.y - gameObject.transform.position.y) / range.radius;
 
         return direction;
         
@@ -127,18 +115,9 @@ public class CasterScript : MonoBehaviour
         GameObject fireball = Instantiate(fireballPrefab, rigidbody2d.position, Quaternion.identity);
 
         Fireball ball = fireball.GetComponent<Fireball>();
-        ball.Launch(GetDirectionOfPlayer(), 300);
+        ball.Launch(GetDirectionOfPlayer(), 2000);
 
         attackTimer = timeToAttack;
-    }
-
-    void FixedUpdate()
-    {
-        Vector2 position = rigidbody2d.position;
-        position.x = position.x + speed * horizontal * Time.deltaTime;
-        position.y = position.y + speed * vertical * Time.deltaTime;
-
-        rigidbody2d.MovePosition(position);
     }
 
     void OnTriggerEnter2D(Collider2D other)

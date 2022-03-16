@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5099309091533493196}
   - component: {fileID: 5099309091533493197}
   - component: {fileID: 5099309091533493199}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -124,3 +124,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tpX: 20
   tpY: -5
+  boundsTrigger: {fileID: 0}

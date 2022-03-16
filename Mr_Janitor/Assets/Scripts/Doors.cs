@@ -7,6 +7,8 @@ public class Doors : MonoBehaviour
 {
     public float tpX = 20f;
     public float tpY = -5f;
+    float TPTimer = 2.0f;
+    float timer;
 
     public Collider2D boundsTrigger;
 
@@ -26,13 +28,22 @@ public class Doors : MonoBehaviour
 
     public void DoorHit()
     {
-           collision.gameObject.GetComponent<Transform>().position = new Vector2(tpX, tpY);
+        collision.gameObject.GetComponent<Transform>().position = new Vector2(tpX, tpY);
     }
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-            //GetComponent<TPBlackPlay>().Play(animator.SetTrigger("TPScreen"));
-            collision = other;
-            Invoke("DoorHit", 2);
+        timer = TPTimer;
+        PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
+        player.inMenu = true;
+        //GetComponent<TPBlackPlay>().Play(animator.SetTrigger("TPScreen"));
+        collision = other;
+        Invoke("DoorHit", 2);
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            player.inMenu = false;
+            timer = TPTimer;
+        }
     }
 }

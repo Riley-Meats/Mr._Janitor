@@ -45,7 +45,6 @@ public class CasterScript : MonoBehaviour
         inRange = false;
         rigidbody2d = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        animator = GetComponent<Animator>();
         position = transform.position;
 
         attackTimer = timeToAttack;
@@ -53,6 +52,10 @@ public class CasterScript : MonoBehaviour
 
     void Update()
     {
+        if (Vector3.Distance(transform.position, Player.transform.position) < .02f)
+        {
+            inRange = true;
+        }
         if (inRange == true)
         {
             attackTimer -= Time.deltaTime;

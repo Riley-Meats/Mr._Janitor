@@ -10,7 +10,11 @@ public class Doors : MonoBehaviour
     float TPTimer = 2.0f;
     float timer;
 
+    bool hit = false;
+
     public Collider2D boundsTrigger;
+
+    PlayerMovement player;
 
     Collision2D collision;
 
@@ -23,27 +27,34 @@ public class Doors : MonoBehaviour
 
     void Update()
     {
-        
+        if (hit == true)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer > 0 && hit)
+        {
+            player.noMove = true;
+        }
+        else if (timer <= 0 && hit)
+        {
+            player.noMove = false;
+            hit = false;
+        }
     }
 
     public void DoorHit()
     {
-        collision.gameObject.GetComponent<Transform>().position = new Vector2(tpX, tpY);
+        player.gameObject.transform.position = new Vector2(tpX, tpY);
     }
 
     public void OnCollisionEnter2D(Collision2D other)
     {
         timer = TPTimer;
-        PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
-        player.inMenu = true;
+        hit = true;
+        player = other.gameObject.GetComponent<PlayerMovement>();
         //GetComponent<TPBlackPlay>().Play(animator.SetTrigger("TPScreen"));
-        collision = other;
         Invoke("DoorHit", 2);
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            player.inMenu = false;
-            timer = TPTimer;
-        }
     }
 }
+

@@ -24,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
 
     public bool seen;
 
+    PlayerMovement player;
+
     Vector2 lookDirection = new Vector2(0, 0);
 
     Animator animator;
@@ -66,6 +68,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                player.Attack();
                 Debug.Log("Pressed primary button.");
                 health = health - 1;
 
@@ -135,6 +138,7 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             inRange = true;
+            player = other.gameObject.GetComponent<PlayerMovement>();
         }
     }
 }

@@ -16112,7 +16112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976415677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.441, y: 2.504, z: 0}
+  m_LocalPosition: {x: 9.042, y: 6.02, z: 0}
   m_LocalScale: {x: 0.03375, y: 0.03375, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -16181,12 +16181,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   inMenu: 0
+  noMove: 0
   maxHealth: 10
   timeInvincible: 2
   currentHealth: 0
   delay: 2
   delayTime: 0
   bloodCount: 0
+  animator: {fileID: 0}
 --- !u!95 &1976415683
 Animator:
   serializedVersion: 3

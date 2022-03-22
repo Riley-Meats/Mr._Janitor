@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     GameObject menu;
 
     public bool inMenu = false;
+    public bool noMove = false;
 
     bool stainRange;
 
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 lookDirection = new Vector2(0, 0);
 
-    Animator animator;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (inMenu == false)
+        if (inMenu == false && noMove == false)
         {
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
@@ -262,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (inMenu == false)
+        if (inMenu == false && !noMove)
         {
             Vector2 position = rigidbody2d.position;
             position.x = position.x + speed * horizontal * Time.deltaTime;
@@ -363,5 +364,10 @@ public class PlayerMovement : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Attack()
+    {
+        animator.SetTrigger("Attack");
     }
 }

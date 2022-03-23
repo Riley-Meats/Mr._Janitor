@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject menu;
 
+    public bool enemyRange = false;
     public bool inMenu = false;
     public bool noMove = false;
 
@@ -293,6 +294,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.GetComponent<EnemyMovement>().seen = true;
+            enemyRange = true;
         }
 
 
@@ -347,6 +349,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.GetComponent<EnemyMovement>().seen = false;
+            enemyRange = false;
         }
 
         if (other.gameObject.tag == "Stain")

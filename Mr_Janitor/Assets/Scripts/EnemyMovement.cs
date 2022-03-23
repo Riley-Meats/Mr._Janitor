@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
     public bool seen;
 
     PlayerMovement player;
+    EnemyMovement enemy;
 
     Vector2 lookDirection = new Vector2(0, 0);
 
@@ -64,50 +65,42 @@ public class EnemyMovement : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if (inRange == true)
+        if (inRange == true && player.enemyRange == true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (enemy.GetComponet.BoxCollider2D)
             {
-                player.Attack();
-                Debug.Log("Pressed primary button.");
-                health = health - 1;
-
-                if (health <= 0)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    Destroy(gameObject);
-                }
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                if (timer <= 0f)
-                {
-                    Debug.Log("Pressed secondary button.");
-                    timer = 1.0f;
-                    health = health - 2;
+                        Debug.Log("Pressed primary button.");
+                    health = health - 1;
 
                     if (health <= 0)
                     {
                         Destroy(gameObject);
                     }
                 }
-            }
 
-            if (Input.GetMouseButtonDown(2))
-            {
-                Debug.Log("Pressed middle click.");
+                if (Input.GetMouseButtonDown(1))
+                {
+                    if (timer <= 0f)
+                    {
+                        Debug.Log("Pressed secondary button.");
+                        timer = 1.0f;
+                        health = health - 2;
+
+                        if (health <= 0)
+                        {
+                            Destroy(gameObject);
+                        }
+                    }
+                }
+
+                if (Input.GetMouseButtonDown(2))
+                {
+                    Debug.Log("Pressed middle click.");
+                }
             }
         }
-
-        /*if (Input.GetMouseButtonDown(1))
-        {
-            mouseButton = true;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            mouseButton = false;
-        }*/
     }
 
     void FixedUpdate()
@@ -139,6 +132,14 @@ public class EnemyMovement : MonoBehaviour
         {
             inRange = true;
             player = other.gameObject.GetComponent<PlayerMovement>();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag =="Player")
+        {
+            inRange = false;
         }
     }
 }

@@ -15293,6 +15293,7 @@ GameObject:
   - component: {fileID: 1779065623}
   - component: {fileID: 1779065622}
   - component: {fileID: 1779065621}
+  - component: {fileID: 1779065625}
   - component: {fileID: 1779065620}
   m_Layer: 0
   m_Name: CommunistDown
@@ -15424,11 +15425,30 @@ Transform:
   m_GameObject: {fileID: 1779065619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.097, y: 0.262, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1779065625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779065619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c274d7085b53e4ab9b4d306c51d47860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  speed: 1
+  damage: 1
+  inRange: 0
+  tutorial: 1
+  timer: 2
+  seen: 0
 --- !u!1 &1821736731
 GameObject:
   m_ObjectHideFlags: 0
@@ -16112,7 +16132,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976415677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.8155, y: 6.0229, z: 0}
+  m_LocalPosition: {x: 8.9, y: 0.27, z: 0}
   m_LocalScale: {x: 0.03375, y: 0.03375, z: 1}
   m_Children:
   - {fileID: 519420032}

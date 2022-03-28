@@ -67,38 +67,35 @@ public class EnemyMovement : MonoBehaviour
 
         if (inRange == true && player.enemyRange == true)
         {
-            if (enemy.GetComponet.BoxCollider2D)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButtonDown(0))
+                Debug.Log("Pressed primary button.");
+                health = health - 1;
+
+                if (health <= 0)
                 {
-                        Debug.Log("Pressed primary button.");
-                    health = health - 1;
+                    Destroy(gameObject);
+                }
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (timer <= 0f)
+                {
+                    Debug.Log("Pressed secondary button.");
+                    timer = 1.0f;
+                    health = health - 2;
 
                     if (health <= 0)
                     {
                         Destroy(gameObject);
                     }
                 }
+            }
 
-                if (Input.GetMouseButtonDown(1))
-                {
-                    if (timer <= 0f)
-                    {
-                        Debug.Log("Pressed secondary button.");
-                        timer = 1.0f;
-                        health = health - 2;
-
-                        if (health <= 0)
-                        {
-                            Destroy(gameObject);
-                        }
-                    }
-                }
-
-                if (Input.GetMouseButtonDown(2))
-                {
-                    Debug.Log("Pressed middle click.");
-                }
+            if (Input.GetMouseButtonDown(2))
+            {
+                Debug.Log("Pressed middle click.");
             }
         }
     }

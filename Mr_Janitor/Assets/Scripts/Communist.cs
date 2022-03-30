@@ -106,7 +106,6 @@ public class Communist : MonoBehaviour
         rigidbody2d.MovePosition(position);
     }
 }*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

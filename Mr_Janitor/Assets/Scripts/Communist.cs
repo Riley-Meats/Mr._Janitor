@@ -25,7 +25,7 @@ public class Communist : MonoBehaviour
 
     public bool seen;
 
-    public GameObject frenchGoat;
+    public GameObject FrenchGoatPrefab;
 
     Vector2 lookDirection = new Vector2(0, 0);
 
@@ -110,6 +110,6 @@ public class Communist : MonoBehaviour
 
     void Spawn()
     {
-        GameObject frenchGoat = Instantiate(frenchGoatPrefab, rigidbody2d.position, Quaternion.identity);
+        GameObject frenchGoat = Instantiate(FrenchGoatPrefab, rigidbody2d.position, Quaternion.identity);
     }
 }

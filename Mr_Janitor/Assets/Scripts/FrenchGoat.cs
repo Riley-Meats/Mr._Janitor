@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class FrenchGoat : MonoBehaviour
 {
     public int health;
 
@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
     public bool seen;
 
     PlayerMovement player;
-    EnemyMovement enemy;
+    FrenchGoat enemy;
 
     Vector2 lookDirection = new Vector2(0, 0);
 
@@ -139,4 +139,6 @@ public class EnemyMovement : MonoBehaviour
             inRange = false;
         }
     }
+
+    
 }

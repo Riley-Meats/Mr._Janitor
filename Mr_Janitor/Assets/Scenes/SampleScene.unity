@@ -14995,8 +14995,8 @@ BoxCollider2D:
 --- !u!114 &1566273791
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4244417097741782665, guid: 2c1030e8036a03c429fcc5d1d7f40230, type: 3}
-  m_PrefabInstance: {fileID: 2035556211}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566273787}
   m_Enabled: 1
@@ -15004,22 +15004,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 139d226d8de7d445c946b303048c60cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  speed: 0.2
-  target: {fileID: 0}
-  horizontal: 0
-  vertical: 0
-  damage: 0
+  health: 0
+  speed: 0
+  damage: 1
   inRange: 0
-  tutorial: 1
+  tutorial: 0
   timer: 2
-  mouseButton: 0
   seen: 0
-  player: {fileID: 0}
-  enemy: {fileID: 0}
-  lookDirection: {x: 0, y: 0}
-  animator: {fileID: 0}
-  rigidbody2d: {fileID: 0}
 --- !u!212 &1566273792
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15477,7 +15468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779065619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.4948, y: 0.4274, z: 0}
+  m_LocalPosition: {x: 9.126, y: 0.27, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16560,7 +16551,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2c1030e8036a03c429fcc5d1d7f40230, type: 3}
 --- !u!4 &2035684582 stripped
 Transform:

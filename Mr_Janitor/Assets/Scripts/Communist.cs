@@ -38,8 +38,6 @@ public class Communist : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-        Spawn();
     }
 
     // Update is called once per frame
@@ -64,6 +62,12 @@ public class Communist : MonoBehaviour
             animator.SetFloat("Move Y", lookDirection.y);
             
             timer -= Time.deltaTime;
+
+            if (timer == 0)
+            {
+                Spawn();
+                timer = 2.0f;
+            }
         }
 
         if (inRange == true)
@@ -108,6 +112,14 @@ public class Communist : MonoBehaviour
         position.y = position.y + speed * vertical * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            seen = true;
+        }
     }
 
     void Spawn()

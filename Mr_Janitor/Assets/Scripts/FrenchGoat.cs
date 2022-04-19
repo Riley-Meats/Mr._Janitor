@@ -127,6 +127,7 @@ public class FrenchGoat : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            seen = true;
             inRange = true;
             player = other.gameObject.GetComponent<PlayerMovement>();
         }

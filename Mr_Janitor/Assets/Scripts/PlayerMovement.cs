@@ -293,7 +293,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<FrenchGoat>().seen = true;
+            //other.GetComponent<FrenchGoat>().seen = true;
             enemyRange = true;
         }
 
@@ -348,7 +348,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<FrenchGoat>().seen = false;
+            //other.GetComponent<FrenchGoat>().seen = false;
             enemyRange = false;
         }
 

@@ -38,6 +38,7 @@ public class Communist : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -46,9 +47,6 @@ public class Communist : MonoBehaviour
         if (seen == true)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-            horizontal = Input.GetAxis("Horizontal");
-            vertical = Input.GetAxis("Vertical");
 
             Vector2 move = new Vector2(horizontal, vertical);
 
@@ -60,18 +58,18 @@ public class Communist : MonoBehaviour
 
             animator.SetFloat("Move X", lookDirection.x);
             animator.SetFloat("Move Y", lookDirection.y);
-            
-            timer -= Time.deltaTime;
-
-            if (timer == 0)
-            {
-                Spawn();
-                timer = 2.0f;
-            }
         }
 
         if (inRange == true)
         {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f)
+            {
+                //Instantiate(FrenchGoatPrefab, transform.position, transform.rotation);
+                Spawn();
+                timer = 2.0f;
+            }
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Pressed primary button.");
@@ -119,14 +117,27 @@ public class Communist : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             seen = true;
+            inRange = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            seen = false;
+            inRange = false;
         }
     }
 
     void Spawn()
     {
         List<Vector2> SpawnPoints = SpawnGoat();
-        GameObject frenchGoat = Instantiate(FrenchGoatPrefab, SpawnPoints[0], Quaternion.identity);
 
+        for (int i = 0; i < SpawnPoints.Count; i++)
+        {
+            GameObject frenchGoat = Instantiate(FrenchGoatPrefab, SpawnPoints[i], Quaternion.identity);
+        }
         //frenchGoat goat = frenchGoat.GetComponent<frenchGoat>();
     }
 
@@ -137,14 +148,14 @@ public class Communist : MonoBehaviour
         Vector2 BLSpawn = new Vector2(0, 0);
         Vector2 BRSpawn = new Vector2(0, 0);
 
-        TLSpawn.x = (gameObject.transform.position.x - .00001f);
-        TLSpawn.y = (gameObject.transform.position.y + .00001f);
-        TRSpawn.x = (gameObject.transform.position.x + .00001f);
-        TRSpawn.y = (gameObject.transform.position.y + .00001f);
-        BLSpawn.x = (gameObject.transform.position.x - .00001f);
-        BLSpawn.y = (gameObject.transform.position.y - .00001f);
-        BRSpawn.x = (gameObject.transform.position.x + .00001f);
-        BRSpawn.y = (gameObject.transform.position.y - .00001f);
+        TLSpawn.x = (gameObject.transform.position.x - .1f);
+        TLSpawn.y = (gameObject.transform.position.y + .1f);
+        TRSpawn.x = (gameObject.transform.position.x + .1f);
+        TRSpawn.y = (gameObject.transform.position.y + .1f);
+        BLSpawn.x = (gameObject.transform.position.x - .1f);
+        BLSpawn.y = (gameObject.transform.position.y - .1f);
+        BRSpawn.x = (gameObject.transform.position.x + .1f);
+        BRSpawn.y = (gameObject.transform.position.y - .1f);
 
         List<Vector2> SpawnPoints = new List<Vector2>();
         SpawnPoints.Add(TLSpawn);

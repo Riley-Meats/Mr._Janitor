@@ -94,9 +94,9 @@ public class PlayerMovement : MonoBehaviour
                     isInvincible = false;
             }
 
-            if (move.magnitude == 0)
+            if (Input.GetMouseButtonDown(0))
             {
-                animator.Play("Idle");
+                animator.Play("JanitorAttack");
             }
 
             if (stainRange == true)
@@ -373,4 +373,6 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetTrigger("Attack");
     }
+
+    
 }

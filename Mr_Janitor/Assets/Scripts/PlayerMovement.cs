@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int bloodCount;
 
+    public GameObject cam;
+
     Vector2 movePosition = new Vector2(0, 0);
 
     Vector2 lookDirection = new Vector2(0, 0);
@@ -69,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cam = GameObject.Find("MainCamera");
+        cam.transform.position = theManOfTheHour.transform.position;
 
         if (inMenu == false && noMove == false)
         {
@@ -96,6 +100,9 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 animator.Play("JanitorAttack");
             }
 
@@ -374,5 +381,4 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Attack");
     }
 
-    
 }

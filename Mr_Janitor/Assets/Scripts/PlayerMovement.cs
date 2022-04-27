@@ -98,14 +98,9 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-
-                Vector3 ans = 90 * Vector3.forward;
-
-                //Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-                //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-                //camera.transform.localRotation = new Vector3(0, 0, 0);
+                Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 
                 animator.Play("JanitorAttack");
             }
@@ -260,7 +255,7 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 1;
         }
 
-        if (currentHealth == 0 && !menu.activeSelf)
+       if (currentHealth == 0 && !menu.activeSelf)
         {
             menu.SetActive(true);
             inMenu = true;

@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject menu;
 
-    public Camera Camera;
-
     public bool enemyRange = false;
     public bool inMenu = false;
     public bool noMove = false;
@@ -51,6 +49,10 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movePosition = new Vector2(0, 0);
 
     Vector2 lookDirection = new Vector2(0, 0);
+
+    Vector2 positionMouse = new Vector2(0, 0);
+
+    Vector2 vectorAttack = new Vector2(0, 0);
 
     public Animator animator;
 
@@ -98,10 +100,16 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                
+
+                positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                // make the Z position equal to the player for a fully 2D comparison
+                positionMouse = transform.position;
+
+                Vector2 towardsMouseFromPlayer = positionMouse - (Vector2)transform.position;
+
+                vectorAttack = towardsMouseFromPlayer.normalized;
+
                 animator.Play("JanitorAttack");
             }
 

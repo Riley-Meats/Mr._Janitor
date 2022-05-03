@@ -43,16 +43,14 @@ public class PlayerMovement : MonoBehaviour
 
     public float delay = 2.0f;
     public float delayTime;
+    float timer;
+    public float setTime = 0.75f;
 
     public int bloodCount;
 
     Vector2 movePosition = new Vector2(0, 0);
 
     Vector2 lookDirection = new Vector2(0, 0);
-
-    Vector2 positionMouse = new Vector2(0, 0);
-
-    Vector2 vectorAttack = new Vector2(0, 0);
 
     public Animator animator;
 
@@ -63,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         delayTime = delay;
+        timer = setTime;
 
         menu = transform.GetChild(1).GetChild(1).gameObject;
         menu.SetActive(false);
@@ -73,6 +72,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timer < 0.75f)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer < 0f)
+        {
+            gameObject.GetComponent<Renderer>().enabled = true;
+            timer = setTime;
+        }
 
         if (inMenu == false && noMove == false)
         {
@@ -100,17 +109,9 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                gameObject.GetComponent<Renderer>().enabled = false;
 
-                positionMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-                // make the Z position equal to the player for a fully 2D comparison
-                positionMouse = transform.position;
-
-                Vector2 towardsMouseFromPlayer = positionMouse - (Vector2)transform.position;
-
-                vectorAttack = towardsMouseFromPlayer.normalized;
-
-                animator.Play("JanitorAttack");
+                timer -= Time.deltaTime;
             }
 
             if (stainRange == true)

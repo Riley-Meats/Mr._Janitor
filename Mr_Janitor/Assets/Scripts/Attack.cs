@@ -17,29 +17,26 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         if (Input.GetMouseButtonDown(0))
         {
             timer -= Time.deltaTime;
             
-                gameObject.GetComponent<Renderer>().enabled = true;
+            gameObject.GetComponent<Renderer>().enabled = true;
 
-                animator.Play("JanitorAttack");
+            animator.Play("JanitorAttack");
 
-                Vector3 mousePos = Input.mousePosition;
-                {
-                    Debug.Log(mousePos.x);
-                    Debug.Log(mousePos.y);
-                }
+            /*Vector3 mousePos = Input.mousePosition;
+            {
+                Debug.Log(mousePos.x);
+                Debug.Log(mousePos.y);
+            }*/
 
-                Vector2 direction = mousePos - transform.position;
-                float angle = Vector2.SignedAngle(Vector2.right, direction);
-                transform.eulerAngles = new Vector3(0, 0, angle);
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = mousePosition - transform.position;
 
-            
+            float angle = Vector2.SignedAngle(Vector2.right, direction);
+            transform.eulerAngles = new Vector3(0, 0, angle);
         }
-        Debug.Log(timer);
 
         if (timer <= 0f)
         {
@@ -51,5 +48,7 @@ public class Attack : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+
+        
     }
 }

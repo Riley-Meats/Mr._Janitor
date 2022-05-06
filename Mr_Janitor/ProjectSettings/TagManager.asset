@@ -19,6 +19,7 @@ TagManager:
   - Camera
   - Gaming
   - Wizard
+  - RandomPlat
   layers:
   - Default
   - TransparentFX

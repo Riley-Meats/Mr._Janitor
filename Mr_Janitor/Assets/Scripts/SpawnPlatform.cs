@@ -5,14 +5,21 @@ using UnityEngine;
 public class SpawnPlatform : MonoBehaviour
 {
     public float percent = 1.0f;
+    public float percent2 = 1.0f;
     float hPercent;
+    float pPercent;
 
     public Vector2 spawn;
+    public Vector2 hSpawn;
 
     public GameObject platform;
     public GameObject healthUp2;
     public GameObject healthUp4;
     public GameObject healthUp6;
+    public GameObject weakE;
+    public GameObject sturdyE;
+    public GameObject strongE;
+    public GameObject powerE;
 
     void Chance()
     {
@@ -22,6 +29,11 @@ public class SpawnPlatform : MonoBehaviour
         {
             hPercent = Random.value;
         }
+    }
+
+    void Health()
+    {
+        percent2 = Random.value;
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -38,7 +50,7 @@ public class SpawnPlatform : MonoBehaviour
         {
             Debug.Log("your percent was " + hPercent);
 
-            if (hPercent >= 0.00001f && hPercent < .50f)
+            if (hPercent >= 0f && hPercent < .50f)
             {
                 Instantiate(healthUp2, spawn, Quaternion.identity);
             }
@@ -50,6 +62,24 @@ public class SpawnPlatform : MonoBehaviour
             {
                 Instantiate(healthUp6, spawn, Quaternion.identity);
             }
+        }
+
+        Health();
+        if (percent2 > .0f && percent2 <= .40f)
+        {
+            Instantiate(weakE, hSpawn, Quaternion.identity);
+        }
+        else if (percent2 > .40f && percent2 <= .70f)
+        {
+            Instantiate(sturdyE, hSpawn, Quaternion.identity);
+        }
+        else if (percent2 > .70f && percent2 <= .90f)
+        {
+            Instantiate(strongE, hSpawn, Quaternion.identity);
+        }
+        else if (percent2 > .90f && percent2 <= 1.0f)
+        {
+            Instantiate(powerE, hSpawn, Quaternion.identity);
         }
     } 
 }

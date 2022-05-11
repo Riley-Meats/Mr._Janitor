@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     bool healthUp4Range;
     bool healthUp6Range;
 
+    bool healthUp2BRange;
+    bool healthUp4BRange;
+    bool healthUp6BRange;
+
     bool WeakEssence;
     bool SturdyEssence;
     bool StrongEssence;
@@ -36,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     public int currentHealth;
 
     int maxBlood = 100;
-    int currentBlood = 0;
+    public int currentBlood = 0;
 
     bool isInvincible;
     float invincibleTimer;
@@ -179,6 +183,60 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
             }
+
+            if (healthUp2BRange == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E) && bloodCount >= 20)
+                {
+                    Debug.Log("Pressed E");
+                    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("HealthUp2Buy"));
+                    if (hit.collider != null)
+                    {
+                        Debug.Log("Hit Heatlh");
+                        Destroy(hit.collider.gameObject);
+                        maxHealth = maxHealth + 2;
+                        currentHealth = currentHealth + 2;
+                        bloodCount = bloodCount - 20;
+                        currentBlood = currentBlood - 20;
+                    }
+                }
+            }
+
+            if (healthUp4BRange == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E) && bloodCount >= 25)
+                {
+                    Debug.Log("Pressed E");
+                    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("HealthUp4Buy"));
+                    if (hit.collider != null)
+                    {
+                        Debug.Log("Hit Heatlh");
+                        Destroy(hit.collider.gameObject);
+                        maxHealth = maxHealth + 4;
+                        currentHealth = currentHealth + 4;
+                        bloodCount = bloodCount - 25;
+                        currentBlood = currentBlood - 25;
+                    }
+                }
+            }
+
+            if (healthUp6BRange == true)
+            {
+                if (Input.GetKeyDown(KeyCode.E) && bloodCount >= 30)
+                {
+                    Debug.Log("Pressed E");
+                    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("HealthUp6Buy"));
+                    if (hit.collider != null)
+                    {
+                        Debug.Log("Hit Heatlh");
+                        Destroy(hit.collider.gameObject);
+                        maxHealth = maxHealth + 6;
+                        currentHealth = currentHealth + 6;
+                        bloodCount = bloodCount - 30;
+                        currentBlood = currentBlood - 30;
+                    }
+                }
+            }
         }
 
         if (WeakEssence == true && currentHealth != maxHealth)
@@ -248,16 +306,6 @@ public class PlayerMovement : MonoBehaviour
                     ChangeHealth(powIncrease);
                     Debug.Log(currentHealth);
                 }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("Pressed E");
-            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("Wizard"));
-            if (hit.collider != null)
-            {
-                
             }
         }
 
@@ -344,6 +392,21 @@ public class PlayerMovement : MonoBehaviour
             healthUp6Range = true;
         }
 
+        if (other.gameObject.tag == "HealthUp2Buy")
+        {
+            healthUp2BRange = true;
+        }
+
+        if (other.gameObject.tag == "HealthUp4Buy")
+        {
+            healthUp4BRange = true;
+        }
+
+        if (other.gameObject.tag == "HealthUp6Buy")
+        {
+            healthUp6BRange = true;
+        }
+
         if (other.gameObject.tag == "WeakEssence")
         {
             WeakEssence = true;
@@ -380,6 +443,21 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Stain")
         {
             stainRange = false;
+        }
+
+        if (other.gameObject.tag == "HealthUp2Buy")
+        {
+            healthUp2BRange = false;
+        }
+
+        if (other.gameObject.tag == "HealthUp4Buy")
+        {
+            healthUp4BRange = false;
+        }
+
+        if (other.gameObject.tag == "HealthUp6Buy")
+        {
+            healthUp6BRange = false;
         }
     }
 

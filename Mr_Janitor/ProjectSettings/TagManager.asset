@@ -20,6 +20,9 @@ TagManager:
   - Gaming
   - Wizard
   - RandomPlat
+  - HealthUp2Buy
+  - HealthUp4Buy
+  - HealthUp6Buy
   layers:
   - Default
   - TransparentFX
@@ -44,10 +47,10 @@ TagManager:
   - Fireball
   - Door
   - Communist
-  - 
-  - 
-  - 
-  - 
+  - Platform
+  - HealthUp2Buy
+  - HealthUp4Buy
+  - HealthUp6Buy
   - 
   - 
   - 

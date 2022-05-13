@@ -14442,7 +14442,7 @@ GameObject:
   - component: {fileID: 1038049725}
   - component: {fileID: 1038049728}
   - component: {fileID: 1038049727}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Shop Platform (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14787,7 +14787,7 @@ GameObject:
   - component: {fileID: 1255391905}
   - component: {fileID: 1255391908}
   - component: {fileID: 1255391907}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Shop Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15890,7 +15890,7 @@ GameObject:
   - component: {fileID: 1892932089}
   - component: {fileID: 1892932092}
   - component: {fileID: 1892932091}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Shop Platform (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16600,7 +16600,7 @@ GameObject:
   - component: {fileID: 2061130112}
   - component: {fileID: 2061130115}
   - component: {fileID: 2061130114}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: HealthUpShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16731,7 +16731,7 @@ GameObject:
   - component: {fileID: 2065306904}
   - component: {fileID: 2065306907}
   - component: {fileID: 2065306906}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Shop Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

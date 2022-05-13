@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3386828239965310793}
   - component: {fileID: 3386828239965310792}
   - component: {fileID: 3386828239965310806}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SturdyEssence (2)
   m_TagString: SturdyEssence
   m_Icon: {fileID: 0}

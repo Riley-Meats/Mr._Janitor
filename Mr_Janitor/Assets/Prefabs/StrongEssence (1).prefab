@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9121329121021531408}
   - component: {fileID: 9121329121021531423}
   - component: {fileID: 9121329121021531409}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: StrongEssence (1)
   m_TagString: StrongEssence
   m_Icon: {fileID: 0}

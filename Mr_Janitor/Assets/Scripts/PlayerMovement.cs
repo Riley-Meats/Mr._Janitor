@@ -252,7 +252,6 @@ public class PlayerMovement : MonoBehaviour
                     //currentHealth = currentHealth + currentHealth * 0.25f;
                     int increase = maxHealth / 4;
                     ChangeHealth(increase);
-                    
                     Debug.Log(currentHealth);
                 }
             }

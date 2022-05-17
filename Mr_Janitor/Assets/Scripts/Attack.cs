@@ -45,4 +45,15 @@ public class Attack : MonoBehaviour
 
         
     }
+
+    /*void OnTriggerEnter2D(Collision2D other)
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Communist")
+            {
+                
+            }
+        }
+    }*/
 }

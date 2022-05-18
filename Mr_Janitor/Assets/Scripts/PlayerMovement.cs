@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     float vertical;
 
     GameObject menu;
+    public GameObject bombThrow;
 
     public bool enemyRange = false;
     public bool inMenu = false;
@@ -32,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
     bool SturdyEssence;
     bool StrongEssence;
     bool PowerfulEssence;
+
+    bool inven1;
+    bool inven2;
+    bool inven3;
 
     public int maxHealth = 10;
     public float timeInvincible = 2.0f;
@@ -141,6 +146,29 @@ public class PlayerMovement : MonoBehaviour
             }
 
             BloodCounter.instance.SetValue(currentBlood / (float)maxBlood);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("bomb"));
+                if (hit.collider != null)
+                {
+                    if (!inven1)
+                    {
+
+                    }
+
+                    if (!inven2)
+                    {
+
+                    }
+
+                    if (!inven3)
+                    {
+
+                    }
+                }
+                
+            }
 
             if (healthUp2Range == true)
             {
@@ -459,6 +487,13 @@ public class PlayerMovement : MonoBehaviour
             healthUp6BRange = false;
         }
     }
+
+    /*void Launch()
+    {
+        GameObject bomb = Instantiate(bombThrow, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        bomb = bombThrow.GetComponent<Bomb>();
+        bomb.Launch(lookDirection, 300);
+    }*/
 
     public void Restart()
     {

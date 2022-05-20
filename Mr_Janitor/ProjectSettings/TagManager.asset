@@ -23,6 +23,7 @@ TagManager:
   - HealthUp2Buy
   - HealthUp4Buy
   - HealthUp6Buy
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -51,7 +52,7 @@ TagManager:
   - HealthUp2Buy
   - HealthUp4Buy
   - HealthUp6Buy
-  - 
+  - Bomb
   - 
   - 
   - 

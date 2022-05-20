@@ -17579,6 +17579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  bomb: {fileID: 9001056801150322437, guid: 29fca3df3923d4017b02ef988c1bf76a, type: 3}
   enemyRange: 0
   inMenu: 0
   noMove: 0
@@ -19131,6 +19132,10 @@ PrefabInstance:
     - target: {fileID: 9001056801150322437, guid: 29fca3df3923d4017b02ef988c1bf76a, type: 3}
       propertyPath: m_Name
       value: CartoonLogic
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001056801150322437, guid: 29fca3df3923d4017b02ef988c1bf76a, type: 3}
+      propertyPath: m_TagString
+      value: Bomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29fca3df3923d4017b02ef988c1bf76a, type: 3}

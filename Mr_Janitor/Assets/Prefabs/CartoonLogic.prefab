@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 9001056801150322432}
   - component: {fileID: 9001056801150322435}
   - component: {fileID: 9001056801150322434}
-  m_Layer: 0
+  m_Layer: 27
   m_Name: CartoonLogic
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

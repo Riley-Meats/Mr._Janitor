@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     float vertical;
 
     GameObject menu;
-    public GameObject bombThrow;
+    public GameObject bomb;
 
     public bool enemyRange = false;
     public bool inMenu = false;
@@ -61,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 lookDirection = new Vector2(0, 0);
 
+    Vector2 bombSpawn;
+
     public Animator animator;
 
     // Start is called before the first frame update
@@ -74,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
         menu = transform.GetChild(1).GetChild(1).gameObject;
         menu.SetActive(false);
+
+        bomb = transform.GetChild(1).GetChild(2).GetChild(1).GetChild(1).gameObject;
 
         currentHealth = maxHealth;
     }
@@ -149,12 +153,12 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("bomb"));
+                RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1.5f, LayerMask.GetMask("Bomb"));
                 if (hit.collider != null)
                 {
                     if (!inven1)
                     {
-
+                        Instantiate(bomb, bombSpawn, Quaternion.identity);
                     }
 
                     if (!inven2)

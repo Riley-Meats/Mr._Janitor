@@ -24,6 +24,9 @@ TagManager:
   - HealthUp4Buy
   - HealthUp6Buy
   - Bomb
+  - Inv1
+  - Inv2
+  - Inv3
   layers:
   - Default
   - TransparentFX

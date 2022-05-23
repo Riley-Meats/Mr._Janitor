@@ -1,7 +1,9 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -14,6 +16,10 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject menu;
     public GameObject bomb;
+    public GameObject inv1;
+    public GameObject inv2;
+    public GameObject inv3;
+    public Sprite bombSprite;
 
     public bool enemyRange = false;
     public bool inMenu = false;
@@ -61,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 lookDirection = new Vector2(0, 0);
 
-    Vector2 bombSpawn;
+    public Vector2 bombSpawn;
 
     public Animator animator;
 
@@ -77,7 +83,11 @@ public class PlayerMovement : MonoBehaviour
         menu = transform.GetChild(1).GetChild(1).gameObject;
         menu.SetActive(false);
 
-        bomb = transform.GetChild(1).GetChild(2).GetChild(1).GetChild(1).gameObject;
+        inv1.gameObject.GetComponent<Image>().enabled = true;
+        inv1.gameObject.GetComponent<Image>().sprite = bomb;
+
+        /*GameObject inventory = Instantiate(bomb, bombSpawn, Quaternion.identity);
+        inventory.transform.parent = transform;*/
 
         currentHealth = maxHealth;
     }

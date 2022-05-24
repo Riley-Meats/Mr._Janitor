@@ -16,10 +16,12 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject menu;
     public GameObject bomb;
+    public GameObject bombThrow;
     public GameObject inv1;
     public GameObject inv2;
     public GameObject inv3;
     public Sprite bombSprite;
+    bool bombS;
 
     public bool enemyRange = false;
     public bool inMenu = false;
@@ -83,8 +85,7 @@ public class PlayerMovement : MonoBehaviour
         menu = transform.GetChild(1).GetChild(1).gameObject;
         menu.SetActive(false);
 
-        inv1.gameObject.GetComponent<Image>().enabled = true;
-        inv1.gameObject.GetComponent<Image>().sprite = bomb;
+        
 
         /*GameObject inventory = Instantiate(bomb, bombSpawn, Quaternion.identity);
         inventory.transform.parent = transform;*/
@@ -168,20 +169,45 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (!inven1)
                     {
-                        Instantiate(bomb, bombSpawn, Quaternion.identity);
+                        inv1.gameObject.GetComponent<Image>().enabled = true;
+                        inv1.gameObject.GetComponent<Image>().sprite = bombSprite;
+                        bombS = true;
+                        inven1 = true;
                     }
-
-                    if (!inven2)
+                    else if (!inven2 && inven1)
                     {
-
+                        inv2.gameObject.GetComponent<Image>().enabled = true;
+                        inv2.gameObject.GetComponent<Image>().sprite = bombSprite;
+                        bombS = true;
+                        inven2 = true;
                     }
-
-                    if (!inven3)
+                    else if (!inven3 && inven1 && inven2)
                     {
-
+                        inv3.gameObject.GetComponent<Image>().enabled = true;
+                        inv3.gameObject.GetComponent<Image>().sprite = bombSprite;
+                        bombS = true;
+                        inven3 = true;
                     }
                 }
                 
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                if (bombS = true)
+                {
+                    Launch();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+
             }
 
             if (healthUp2Range == true)
@@ -502,12 +528,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /*void Launch()
+    void Launch()
     {
-        GameObject bomb = Instantiate(bombThrow, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-        bomb = bombThrow.GetComponent<Bomb>();
-        bomb.Launch(lookDirection, 300);
-    }*/
+        GameObject bombs = Instantiate(bombThrow, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        Explosion bombed = bombThrow.GetComponent<Explosion>();
+
+        Attack attack = gameObject.GetComponent<Attack>();
+        bombed.Launchs(lookDirection, 300);
+    }
 
     public void Restart()
     {

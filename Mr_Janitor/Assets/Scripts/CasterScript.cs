@@ -110,7 +110,6 @@ public class CasterScript : MonoBehaviour
         direction.y = (Player.transform.position.y - gameObject.transform.position.y) / range.radius;
 
         return direction;
-        
     }
 
     void Launch()

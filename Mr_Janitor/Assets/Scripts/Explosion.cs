@@ -6,21 +6,30 @@ public class Explosion : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
 
-    int damage = 2;
+    float horizontal;
+    float vertical;
 
-    float timer = 2.0f;
+    float timer = 1.0f;
     float deleteTimer;
 
+    bool throws;
+
     int hits;
+
+    void Start()
+    {
+        deleteTimer = timer;
+    }
 
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
-    public void Launchs(Vector2 direction, float force)
+    public void Launch(Vector2 direction, float force)
     {
         rigidbody2d.AddForce(force * direction);
+        throws = true;
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -30,19 +39,18 @@ public class Explosion : MonoBehaviour
             
         }
     }
-
-    void Start()
-    {
-        deleteTimer = timer;
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        deleteTimer -= Time.deltaTime;
-        if (deleteTimer < 0f)
+        if (throws)
         {
-            Destroy(gameObject);
+            deleteTimer -= Time.deltaTime;
+            if (deleteTimer < 0f)
+            {
+                //Destroy(gameObject);
+            }
         }
     }
 }

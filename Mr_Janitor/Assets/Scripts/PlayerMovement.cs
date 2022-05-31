@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject Obj;
+    public CircleCollider2D range;
+
     public float speed = 3.0f;
 
     Rigidbody2D rigidbody2d;
@@ -15,13 +18,15 @@ public class PlayerMovement : MonoBehaviour
     float vertical;
 
     GameObject menu;
-    public GameObject bomb;
-    public GameObject bombThrow;
+    public GameObject bombPrefab;
+    public GameObject objection;
     public GameObject inv1;
     public GameObject inv2;
     public GameObject inv3;
     public Sprite bombSprite;
-    bool bombS;
+    bool bomb1;
+    bool bomb2;
+    bool bomb3;
 
     public bool enemyRange = false;
     public bool inMenu = false;
@@ -47,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     bool inven3;
 
     public int maxHealth = 10;
-    public float timeInvincible = 2.0f;
+    public float timeInvincible = 0.75f;
 
     public float health { get { return currentHealth; }}
     public int currentHealth;
@@ -67,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movePosition = new Vector2(0, 0);
 
-    Vector2 lookDirection = new Vector2(0, 0);
+    public Vector2 lookDirection = new Vector2(0, 0);
 
     public Vector2 bombSpawn;
 
@@ -117,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
             if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
             {
                 lookDirection.Set(move.x, move.y);
-                //lookDirection.Normalize();
+                lookDirection.Normalize();
             }
 
             animator.SetFloat("Move X", lookDirection.x);
@@ -171,21 +176,21 @@ public class PlayerMovement : MonoBehaviour
                     {
                         inv1.gameObject.GetComponent<Image>().enabled = true;
                         inv1.gameObject.GetComponent<Image>().sprite = bombSprite;
-                        bombS = true;
+                        bomb1 = true;
                         inven1 = true;
                     }
                     else if (!inven2 && inven1)
                     {
                         inv2.gameObject.GetComponent<Image>().enabled = true;
                         inv2.gameObject.GetComponent<Image>().sprite = bombSprite;
-                        bombS = true;
+                        bomb2 = true;
                         inven2 = true;
                     }
                     else if (!inven3 && inven1 && inven2)
                     {
                         inv3.gameObject.GetComponent<Image>().enabled = true;
                         inv3.gameObject.GetComponent<Image>().sprite = bombSprite;
-                        bombS = true;
+                        bomb3 = true;
                         inven3 = true;
                     }
                 }
@@ -194,20 +199,38 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                if (bombS = true)
+                if (bomb1 == true)
                 {
                     Launch();
+                    inv1.gameObject.GetComponent<Image>().enabled = false;
+                    inv1.gameObject.GetComponent<Image>().sprite = null;
+                    bomb1 = false;
+                    inven1 = false;
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-
+                if (bomb2 == true)
+                {
+                    Launch();
+                    inv2.gameObject.GetComponent<Image>().enabled = false;
+                    inv2.gameObject.GetComponent<Image>().sprite = null;
+                    bomb2 = false;
+                    inven2 = false;
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-
+                if (bomb3 == true)
+                {
+                    Launch();
+                    inv3.gameObject.GetComponent<Image>().enabled = false;
+                    inv3.gameObject.GetComponent<Image>().sprite = null;
+                    bomb3 = false;
+                    inven3 = false;
+                }
             }
 
             if (healthUp2Range == true)
@@ -530,11 +553,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Launch()
     {
-        GameObject bombs = Instantiate(bombThrow, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-        Explosion bombed = bombThrow.GetComponent<Explosion>();
+        GameObject bomb = Instantiate(bombPrefab, rigidbody2d.position + lookDirection * 0.05f, Quaternion.identity);
 
-        Attack attack = gameObject.GetComponent<Attack>();
-        bombed.Launchs(lookDirection, 300);
+        Explosion bombed = bomb.GetComponent<Explosion>();
+        bombed.Launch(lookDirection, 50f);
     }
 
     public void Restart()

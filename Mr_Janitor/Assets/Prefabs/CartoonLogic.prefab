@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9001056801150322432}
   - component: {fileID: 9001056801150322435}
   - component: {fileID: 9001056801150322434}
+  - component: {fileID: -5639544089781952825}
   m_Layer: 27
   m_Name: CartoonLogic
   m_TagString: Bomb
@@ -130,4 +131,16 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
+--- !u!114 &-5639544089781952825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001056801150322437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f93a65f6a51c49ab874a36ed3d0338d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

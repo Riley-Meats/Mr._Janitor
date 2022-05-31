@@ -1799,11 +1799,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5099309091533493186, guid: a44f9d3fadd374586b4e2387931b6d04, type: 3}
   m_PrefabInstance: {fileID: 391050467}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &791226814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9001056801150322437, guid: 29fca3df3923d4017b02ef988c1bf76a, type: 3}
-  m_PrefabInstance: {fileID: 9001056801795833838}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &806562532
 GameObject:
   m_ObjectHideFlags: 0
@@ -17809,9 +17804,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b840e09da8f4f4369ba47735a0a3a78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Obj: {fileID: 0}
+  range: {fileID: 1878924517300126108}
   speed: 0.5
-  bomb: {fileID: 9001056801150322437, guid: 29fca3df3923d4017b02ef988c1bf76a, type: 3}
-  bombThrow: {fileID: 791226814}
+  bombPrefab: {fileID: 9001056801150322437, guid: 29fca3df3923d4017b02ef988c1bf76a, type: 3}
+  objection: {fileID: 0}
   inv1: {fileID: 1453265338}
   inv2: {fileID: 600836576}
   inv3: {fileID: 2110343598}
@@ -17827,6 +17824,7 @@ MonoBehaviour:
   delayTime: 0
   setTime: 0.75
   bloodCount: 35
+  lookDirection: {x: 0, y: 0}
   bombSpawn: {x: 0, y: 0}
   animator: {fileID: 1878924517300126107}
 --- !u!95 &1878924517300126107
@@ -17945,7 +17943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878924517300126181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.284, y: 0.102, z: 0}
+  m_LocalPosition: {x: 9.432, y: 0.255, z: 0}
   m_LocalScale: {x: 0.03375, y: 0.03375, z: 1}
   m_Children:
   - {fileID: 2056279038}

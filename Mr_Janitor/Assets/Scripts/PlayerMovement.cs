@@ -217,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
                     inv2.gameObject.GetComponent<Image>().enabled = false;
                     inv2.gameObject.GetComponent<Image>().sprite = null;
                     bomb2 = false;
-                    inven2 = false;
+                    inven2 = false; 
                 }
             }
 

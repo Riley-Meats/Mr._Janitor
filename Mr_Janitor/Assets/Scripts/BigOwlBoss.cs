@@ -20,7 +20,7 @@ public class BigOwlBoss : MonoBehaviour
 
     public bool inRange = false;
 
-    public float timer = 2.0f;
+    public float timer = 5.0f;
 
     public float attackTimer;
     public float timeToAttack = 2.5f;
@@ -50,45 +50,48 @@ public class BigOwlBoss : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, Player.transform.position) < .02f)
+        if (inRange)
         {
-            inRange = true;
-        }
-        if (inRange == true)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-            horizontal = Input.GetAxis("Horizontal");
-            vertical = Input.GetAxis("Vertical");
-
-            Vector2 move = new Vector2(horizontal, vertical);
-
-            if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-                lookDirection.Set(move.x, move.y);
-                lookDirection.Normalize();
-            }
-
-            attackTimer -= Time.deltaTime;
-            RotateTowardsPlayer();
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("Pressed primary button.");
-                health = health - 1;
-
-                if (health <= 0)
+                if (Vector3.Distance(transform.position, Player.transform.position) < .02f)
                 {
-                    Destroy(gameObject);
+                    inRange = true;
                 }
-            }
+                if (inRange == true)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-            if (Input.GetMouseButtonDown(1))
-            {
-                if (timer <= 0f)
+                    horizontal = Input.GetAxis("Horizontal");
+                    vertical = Input.GetAxis("Vertical");
+
+                    Vector2 move = new Vector2(horizontal, vertical);
+
+                    if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+                    {
+                        lookDirection.Set(move.x, move.y);
+                        lookDirection.Normalize();
+                    }
+
+                    attackTimer -= Time.deltaTime;
+                    RotateTowardsPlayer();
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Pressed primary button.");
+                    health = health - 1;
+
+                    if (health <= 0)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+
+                if (Input.GetMouseButtonDown(1))
                 {
                     Debug.Log("Pressed secondary button.");
-                    timer = 1.0f;
                     health = health - 2;
 
                     if (health <= 0)

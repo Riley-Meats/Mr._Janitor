@@ -1875,12 +1875,12 @@ GameObject:
   - component: {fileID: 785045616}
   - component: {fileID: 785045615}
   - component: {fileID: 785045619}
-  - component: {fileID: 785045618}
   - component: {fileID: 785045617}
   - component: {fileID: 785045620}
+  - component: {fileID: 785045618}
   m_Layer: 28
   m_Name: GreatScott
-  m_TagString: Untagged
+  m_TagString: BigBoyBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1976,22 +1976,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.308}
   m_EdgeRadius: 0
---- !u!58 &785045618
-CircleCollider2D:
+--- !u!70 &785045618
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785045614}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.023985863, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.7186089
+  m_Offset: {x: -2.5553057, y: 0.08923037}
+  m_Size: {x: 9.190134, y: 3.1224499}
+  m_Direction: 1
 --- !u!114 &785045619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2005,15 +2005,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1878924517300126181}
-  range: {fileID: 785045618}
+  range: {fileID: 0}
   health: 0
-  speed: 1
-  damage: 1
+  speed: 10
   inRange: 0
   timer: 2
+  timerTimer: 6
   attackTimer: 0
   timeToAttack: 2.5
   seen: 0
+  playerMovement: {fileID: 0}
+  lookDirection: {x: 0, y: 0}
 --- !u!50 &785045620
 Rigidbody2D:
   serializedVersion: 4
@@ -29508,6 +29510,27 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5099309091533493197, guid: a44f9d3fadd374586b4e2387931b6d04, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a44f9d3fadd374586b4e2387931b6d04, type: 3}
+--- !u!1 &1026047820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5099309091533493187, guid: a44f9d3fadd374586b4e2387931b6d04, type: 3}
+  m_PrefabInstance: {fileID: 2132255243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1026047821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026047820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df420efb120994dee937f487995f5767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tpX: 6.186
+  tpY: -4.814
+  boundsTrigger: {fileID: 0}
+  owlBoss: {fileID: 0}
 --- !u!1 &1038049724
 GameObject:
   m_ObjectHideFlags: 0
@@ -32304,7 +32327,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5099309091533493199, guid: a44f9d3fadd374586b4e2387931b6d04, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a44f9d3fadd374586b4e2387931b6d04, type: 3}
 --- !u!1001 &2147438083
 PrefabInstance:
@@ -32817,7 +32841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obj: {fileID: 0}
   range: {fileID: 1878924517300126108}
-  speed: 0.5
+  speed: 0.25
   bombPrefab: {fileID: 9001056801150322437, guid: 29fca3df3923d4017b02ef988c1bf76a, type: 3}
   objection: {fileID: 0}
   inv1: {fileID: 1453265338}
@@ -32954,7 +32978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878924517300126181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.383, y: -1.046, z: 0}
+  m_LocalPosition: {x: 9.38, y: -1, z: 0}
   m_LocalScale: {x: 0.03375, y: 0.03375, z: 1}
   m_Children:
   - {fileID: 2056279038}

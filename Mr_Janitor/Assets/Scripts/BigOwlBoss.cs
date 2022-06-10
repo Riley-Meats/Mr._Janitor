@@ -5,6 +5,7 @@ using UnityEngine;
 public class BigOwlBoss : MonoBehaviour
 {
     public GameObject Player;
+    public GameObject T1;
 
     public CircleCollider2D range;
 
@@ -51,6 +52,7 @@ public class BigOwlBoss : MonoBehaviour
         position = transform.position;
         GameObject g = GameObject.FindGameObjectWithTag("Player");
         playerMovement = g.GetComponent<PlayerMovement>();
+        GameObject t1 = GameObject.FindGameObjectWithTag("Target1");
 
         attackTimer = timeToAttack;
     }
@@ -67,6 +69,7 @@ public class BigOwlBoss : MonoBehaviour
                     time1 = false;
                     time2 = true;
                     timer = 2.5f;
+                    GetDirectionOfPlayer();
                 }
             }
             
@@ -87,20 +90,23 @@ public class BigOwlBoss : MonoBehaviour
                     }
                     if (inRange == true)
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-                        horizontal = Input.GetAxis("Horizontal");
-                        vertical = Input.GetAxis("Vertical");
-
-                        Vector2 move = new Vector2(horizontal, vertical);
-
-                        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+                        if (!hit)
                         {
-                            lookDirection.Set(move.x, move.y);
-                            lookDirection.Normalize();
-                        }
+                            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-                        attackTimer -= Time.deltaTime;
+                            horizontal = Input.GetAxis("Horizontal");
+                            vertical = Input.GetAxis("Vertical");
+
+                            Vector2 move = new Vector2(horizontal, vertical);
+
+                            if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+                            {
+                                lookDirection.Set(move.x, move.y);
+                                lookDirection.Normalize();
+                            }
+
+                            attackTimer -= Time.deltaTime;
+                        }
                         RotateTowardsPlayer();
                     }
 
@@ -126,6 +132,11 @@ public class BigOwlBoss : MonoBehaviour
                         }
                     }
                 }
+            }
+            if (hit)
+            {
+                RotateTowardsTarget();
+                HitAndRun();
             }
         }
     }
@@ -162,11 +173,20 @@ public class BigOwlBoss : MonoBehaviour
         hit = true;
     }
 
-    void HitAndRun()
+    Vector2 HitAndRun()
     {
-        if (hit == true)
-        {
-            
-        }
+        Vector2 targetDirection = new Vector2(0, 0);
+
+        targetDirection.x = (T1.transform.position.x - gameObject.transform.position.x) / range.radius;
+        targetDirection.y = (T1.transform.position.y - gameObject.transform.position.y) / range.radius;
+
+        return targetDirection;
+    }
+
+    void RotateTowardsTarget()
+    {
+        float angle = Mathf.Atan2(T1.transform.position.x - transform.position.x, T1.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
     }
 }

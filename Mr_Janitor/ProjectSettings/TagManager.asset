@@ -28,6 +28,7 @@ TagManager:
   - Inv2
   - Inv3
   - BigBoyBoss
+  - Target1
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,13 @@ public class BigOwlBoss : MonoBehaviour
 {
     public GameObject Player;
     public GameObject T1;
+    public GameObject T2;
+    public GameObject T3;
+    public GameObject T4;
+    public GameObject T5;
+    public GameObject T6;
+    public GameObject T7;
+    public GameObject T8;
 
     public CircleCollider2D range;
 
@@ -14,6 +21,16 @@ public class BigOwlBoss : MonoBehaviour
 
     public float speed;
     private Transform target;
+    private Transform target1;
+    private Transform target2;
+    private Transform target3;
+    private Transform target4;
+    private Transform target5;
+    private Transform target6;
+    private Transform target7;
+    private Transform target8;
+
+    public float percent = 1.0f;
 
     float horizontal;
     float vertical;
@@ -49,10 +66,25 @@ public class BigOwlBoss : MonoBehaviour
         inRange = false;
         rigidbody2d = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        target1 = GameObject.FindGameObjectWithTag("Target1").GetComponent<Transform>();
+        target2 = GameObject.FindGameObjectWithTag("Target2").GetComponent<Transform>();
+        target3 = GameObject.FindGameObjectWithTag("Target3").GetComponent<Transform>();
+        target4 = GameObject.FindGameObjectWithTag("Target4").GetComponent<Transform>();
+        target5 = GameObject.FindGameObjectWithTag("Target5").GetComponent<Transform>();
+        target6 = GameObject.FindGameObjectWithTag("Target6").GetComponent<Transform>();
+        target7 = GameObject.FindGameObjectWithTag("Target7").GetComponent<Transform>();
+        target8 = GameObject.FindGameObjectWithTag("Target8").GetComponent<Transform>();
         position = transform.position;
         GameObject g = GameObject.FindGameObjectWithTag("Player");
         playerMovement = g.GetComponent<PlayerMovement>();
         GameObject t1 = GameObject.FindGameObjectWithTag("Target1");
+        GameObject t2 = GameObject.FindGameObjectWithTag("Target2");
+        GameObject t3 = GameObject.FindGameObjectWithTag("Target3");
+        GameObject t4 = GameObject.FindGameObjectWithTag("Target4");
+        GameObject t5 = GameObject.FindGameObjectWithTag("Target5");
+        GameObject t6 = GameObject.FindGameObjectWithTag("Target6");
+        GameObject t7 = GameObject.FindGameObjectWithTag("Target7");
+        GameObject t8 = GameObject.FindGameObjectWithTag("Target8");
 
         attackTimer = timeToAttack;
     }
@@ -106,8 +138,9 @@ public class BigOwlBoss : MonoBehaviour
                             }
 
                             attackTimer -= Time.deltaTime;
+
+                            RotateTowardsPlayer();
                         }
-                        RotateTowardsPlayer();
                     }
 
                     if (Input.GetMouseButtonDown(0))
@@ -132,11 +165,81 @@ public class BigOwlBoss : MonoBehaviour
                         }
                     }
                 }
-            }
-            if (hit)
-            {
-                RotateTowardsTarget();
-                HitAndRun();
+
+                if (inRange)
+                {
+                    if (percent >= 0f && percent <= .125f)
+                    {
+                        if (hit)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target1.position, speed * Time.deltaTime);
+                            RotateTowardsTarget1();
+                        }
+                    }
+
+                    if (percent > .125f && percent <= .25f)
+                    {
+                        if (hit)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target2.position, speed * Time.deltaTime);
+                            RotateTowardsTarget2();
+                        }
+                    }
+
+                    if (percent > .25f && percent <= .375f)
+                    {
+                        if (hit)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target3.position, speed * Time.deltaTime);
+                            RotateTowardsTarget3();
+                        }
+                    }
+
+                    if (percent > .375f && percent <= .50f)
+                    {
+                        if (hit)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target4.position, speed * Time.deltaTime);
+                            RotateTowardsTarget4();
+                        }
+                    }
+
+                    if (percent > .50f && percent <= .625f)
+                    {
+                        if (hit)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target5.position, speed * Time.deltaTime);
+                            RotateTowardsTarget5();
+                        }
+                    }
+
+                    if (percent > .625f && percent <= .75f)
+                    {
+                        if (hit)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target6.position, speed * Time.deltaTime);
+                            RotateTowardsTarget6();
+                        }
+                    }
+
+                    if (percent > .75f && percent <= .875f)
+                    {
+                        if (hit)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target7.position, speed * Time.deltaTime);
+                            RotateTowardsTarget7();
+                        }
+                    }
+
+                    if (percent > .875f && percent <= 1f)
+                    {
+                        if (hit)
+                        {
+                            transform.position = Vector2.MoveTowards(transform.position, target8.position, speed * Time.deltaTime);
+                            RotateTowardsTarget8();
+                        }
+                    }
+                }
             }
         }
     }
@@ -169,23 +272,131 @@ public class BigOwlBoss : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        playerMovement.ChangeHealth(-damage);
-        hit = true;
+        if (other.gameObject.tag == "Player")
+        {
+            playerMovement.ChangeHealth(-damage);
+            hit = true;
+            timerTimer = 0f;
+            percent = Random.value;
+        }
+
+        if (other.gameObject.tag == "Target1")
+        {
+            timer = 2.5f;
+            hit = false;
+            time1 = true;
+            time2 = false;
+        }
+
+        if (other.gameObject.tag == "Target2")
+        {
+            timer = 2.5f;
+            hit = false;
+            time1 = true;
+            time2 = false;
+        }
+
+        if (other.gameObject.tag == "Target3")
+        {
+            timer = 2.5f;
+            hit = false;
+            time1 = true;
+            time2 = false;
+        }
+
+        if (other.gameObject.tag == "Target4")
+        {
+            timer = 2.5f;
+            hit = false;
+            time1 = true;
+            time2 = false;
+        }
+
+        if (other.gameObject.tag == "Target5")
+        {
+            timer = 2.5f;
+            hit = false;
+            time1 = true;
+            time2 = false;
+        }
+
+        if (other.gameObject.tag == "Target6")
+        {
+            timer = 2.5f;
+            hit = false;
+            time1 = true;
+            time2 = false;
+        }
+
+        if (other.gameObject.tag == "Target7")
+        {
+            timer = 2.5f;
+            hit = false;
+            time1 = true;
+            time2 = false;
+        }
+
+        if (other.gameObject.tag == "Target8")
+        {
+            timer = 2.5f;
+            hit = false;
+            time1 = true;
+            time2 = false;
+        }
     }
 
-    Vector2 HitAndRun()
-    {
-        Vector2 targetDirection = new Vector2(0, 0);
-
-        targetDirection.x = (T1.transform.position.x - gameObject.transform.position.x) / range.radius;
-        targetDirection.y = (T1.transform.position.y - gameObject.transform.position.y) / range.radius;
-
-        return targetDirection;
-    }
-
-    void RotateTowardsTarget()
+    void RotateTowardsTarget1()
     {
         float angle = Mathf.Atan2(T1.transform.position.x - transform.position.x, T1.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
+    }
+
+    void RotateTowardsTarget2()
+    {
+        float angle = Mathf.Atan2(T2.transform.position.x - transform.position.x, T2.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
+    }
+
+    void RotateTowardsTarget3()
+    {
+        float angle = Mathf.Atan2(T3.transform.position.x - transform.position.x, T3.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
+    }
+
+    void RotateTowardsTarget4()
+    {
+        float angle = Mathf.Atan2(T4.transform.position.x - transform.position.x, T4.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
+    }
+
+    void RotateTowardsTarget5()
+    {
+        float angle = Mathf.Atan2(T5.transform.position.x - transform.position.x, T5.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
+    }
+
+    void RotateTowardsTarget6()
+    {
+        float angle = Mathf.Atan2(T6.transform.position.x - transform.position.x, T6.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
+    }
+
+    void RotateTowardsTarget7()
+    {
+        float angle = Mathf.Atan2(T7.transform.position.x - transform.position.x, T7.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
+    }
+
+    void RotateTowardsTarget8()
+    {
+        float angle = Mathf.Atan2(T8.transform.position.x - transform.position.x, T8.transform.position.y - transform.position.y) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, -angle));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200.0f * Time.deltaTime);
     }

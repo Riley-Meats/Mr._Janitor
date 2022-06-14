@@ -277,6 +277,7 @@ public class BigOwlBoss : MonoBehaviour
             playerMovement.ChangeHealth(-damage);
             hit = true;
             timerTimer = 0f;
+            timer = 0f;
             percent = Random.value;
         }
 

@@ -36,6 +36,7 @@ TagManager:
   - Target6
   - Target7
   - Target8
+  - AI
   layers:
   - Default
   - TransparentFX
@@ -66,7 +67,7 @@ TagManager:
   - HealthUp6Buy
   - Bomb
   - BigBirdBoss
-  - 
+  - AI
   - 
   - 
   m_SortingLayers:

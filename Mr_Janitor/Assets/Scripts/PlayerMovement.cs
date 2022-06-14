@@ -90,8 +90,6 @@ public class PlayerMovement : MonoBehaviour
         menu = transform.GetChild(1).GetChild(1).gameObject;
         menu.SetActive(false);
 
-        
-
         /*GameObject inventory = Instantiate(bomb, bombSpawn, Quaternion.identity);
         inventory.transform.parent = transform;*/
 

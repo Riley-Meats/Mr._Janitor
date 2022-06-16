@@ -16,6 +16,8 @@ public class BossDoor : MonoBehaviour
 
     public BigOwlBoss owlBoss;
 
+    public AttackIndicator attackIndicator;
+
     PlayerMovement player;
 
     Collision2D collision;
@@ -51,6 +53,7 @@ public class BossDoor : MonoBehaviour
     {
         player.gameObject.transform.position = new Vector2(tpX, tpY);
         owlBoss.inRange = true;
+        attackIndicator.gameObject.GetComponent<Renderer>().enabled = true;
     }
 
     public void OnCollisionEnter2D(Collision2D other)

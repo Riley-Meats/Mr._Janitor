@@ -2225,7 +2225,7 @@ MonoBehaviour:
   T7: {fileID: 731161068}
   T8: {fileID: 276385005}
   range: {fileID: 1878924517300126108}
-  health: 1
+  health: 10
   speed: 2
   percent: 1
   inRange: 0
@@ -2268,7 +2268,10 @@ GameObject:
   - component: {fileID: 803414954}
   - component: {fileID: 803414955}
   - component: {fileID: 803414956}
+  - component: {fileID: 803414958}
   - component: {fileID: 803414957}
+  - component: {fileID: 803414960}
+  - component: {fileID: 803414959}
   m_Layer: 29
   m_Name: Attack Indicator
   m_TagString: AI
@@ -2283,13 +2286,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803414953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.673, y: -0.229, z: 0}
-  m_LocalScale: {x: 2.4830818, y: 2.4830818, z: 0.083804}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 5.11, y: -0.35, z: 0}
+  m_LocalScale: {x: 2.4830813, y: 2.4830813, z: 0.083804}
   m_Children: []
   m_Father: {fileID: 1878924517300126183}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!212 &803414955
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2297,7 +2300,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803414953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2329,8 +2332,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 146
-  m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
+  m_SortingOrder: 69
+  m_Sprite: {fileID: -953875357780390297, guid: 5468bd2a3c1e9463eb9074eb79a867f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2356,6 +2359,7 @@ MonoBehaviour:
   target: {fileID: 1878924517300126181}
   lookDirection: {x: 0, y: 0}
   speed: 1
+  bigOwlBoss: {fileID: 785045619}
 --- !u!50 &803414957
 Rigidbody2D:
   serializedVersion: 4
@@ -2364,7 +2368,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803414953}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2375,8 +2379,68 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!61 &803414958
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803414953}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 1, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!111 &803414959
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803414953}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &803414960
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803414953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4c3023858e5a4e0991be1dcf43cd0af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &806562532
 GameObject:
   m_ObjectHideFlags: 0
@@ -29928,6 +29992,7 @@ MonoBehaviour:
   tpY: -4.814
   boundsTrigger: {fileID: 0}
   owlBoss: {fileID: 0}
+  attackIndicator: {fileID: 803414956}
 --- !u!1 &1038049724
 GameObject:
   m_ObjectHideFlags: 0

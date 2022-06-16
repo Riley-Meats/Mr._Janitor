@@ -12,6 +12,8 @@ public class AttackIndicator : MonoBehaviour
 
     Rigidbody2D rigidbody2d;
 
+    public BigOwlBoss bigOwlBoss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,16 +23,14 @@ public class AttackIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.RotateAround(target.transform.position, Vector3.forward, 120 * speed * Time.deltaTime);
-
         lookDirection.x = transform.position.x - target.transform.position.x;
         lookDirection.y = transform.position.y - target.transform.position.y;
 
-        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 100f, LayerMask.GetMask("BigBirdBoss"));
+        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 1000f, LayerMask.GetMask("BigBirdBoss"));
 
         if (hit.collider == null)
         {
-            transform.RotateAround(target.transform.position, Vector3.forward, 720 * speed * Time.deltaTime);
+            transform.RotateAround(target.transform.position, Vector3.forward, 100000 * speed * Time.deltaTime);
         }
     }
 }

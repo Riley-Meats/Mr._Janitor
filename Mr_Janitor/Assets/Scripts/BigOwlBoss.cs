@@ -32,6 +32,8 @@ public class BigOwlBoss : MonoBehaviour
 
     public float percent = 1.0f;
 
+    bool click;
+
     float horizontal;
     float vertical;
 
@@ -145,12 +147,15 @@ public class BigOwlBoss : MonoBehaviour
 
                     if (Input.GetMouseButtonDown(0))
                     {
-                        Debug.Log("Pressed primary button.");
-                        health = health - 1;
-
-                        if (health <= 0)
+                        if (click)
                         {
-                            Destroy(gameObject);
+                            Debug.Log("Pressed primary button.");
+                            health = health - 1;
+
+                            if (health <= 0)
+                            {
+                                Destroy(gameObject);
+                            }
                         }
                     }
 
@@ -279,6 +284,7 @@ public class BigOwlBoss : MonoBehaviour
             timerTimer = 0f;
             timer = 0f;
             percent = Random.value;
+            click = true;
         }
 
         if (other.gameObject.tag == "Target1")
@@ -343,6 +349,14 @@ public class BigOwlBoss : MonoBehaviour
             hit = false;
             time1 = true;
             time2 = false;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            click = false;
         }
     }
 
